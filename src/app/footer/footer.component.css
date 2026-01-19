@@ -1,0 +1,140 @@
+p{
+  line-height: 1.8;
+}
+.container{
+  width: 70%;
+}
+.footer-bg{
+  background-color: #000f33;
+  color: white;
+}
+.footer-bg label{
+  padding: 10px 15px 5px 10px;
+  font-weight: 300;
+  font-size: 16px;
+  color: white;
+}
+.footer-bg button{
+background-color: #004dff;
+border: #004dff;
+border-radius: 5px;
+color: white;
+padding: 0 18px;
+}
+.footer-bg input{
+background-color : #142243 ;
+border: #000f33;
+padding: 10px 10px;
+border-radius: 5px 0 0 5px!important;
+color: white;
+
+}
+
+::placeholder{
+  color: gray;
+  font-weight: 400;
+  font-size: 12px;
+
+}
+
+.img-div img{
+
+  width: 150px;  
+
+}
+.my-border{
+  border-bottom:  1px solid rgba(255, 255, 255, 0.1);
+}
+.about-div{
+  margin-bottom: 30px;
+
+}
+.list-div{
+  margin-bottom: 30px;
+
+}
+.about-div h5{
+  font-size: 18px;
+}
+.about-div p{
+  color: gray;
+  font-size: 16px;
+  padding: 15px 0;
+}
+.outline-div{
+  width: 60px;
+  height: 1px;
+  background-color: #142243;
+  margin: 10px 0;
+}
+.line-div{
+  width: 30%;
+  height: 100%;
+  background-color: #004dff;
+  margin: 10px 0;
+}
+.icons-div i{
+  font-size: 18px;
+  margin: 3px;
+  padding: 15px;
+  background-color: #142243;
+  border-radius: 50%;
+  transition: all 1s;
+  cursor: pointer;
+}
+.icons-div i:hover{
+  background-color: #004dff;
+}
+
+.list-div h5{
+  font-size: 18px;
+}
+.list-div ul li{
+  color: gray;
+  font-size: 16px;
+  padding: 15px 0 0 0;
+}
+.fa-chevron-left{
+  font-size: 10px;
+  padding-left: 5px;
+}
+.copy-div{
+  background-color: #142243 ;
+}
+.copy-div p{
+  padding: 10px 0 ;
+  color: whitesmoke;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 300;
+}
+.copy-div p i{
+  font-size: 12px;
+}
+@media all and (max-width: 992px) and (min-width: 576px){
+  .container{
+      width: 90%;
+  }
+  .img-div{
+      border-right: none;
+      text-align: center;
+
+  }
+}
+@media all and (max-width: 576px){
+
+  .container{
+      width: 90%;
+  }
+  .img-div{
+      border-right: none;
+      text-align: center;
+
+  }
+}
+@media all and (max-width: 400px){
+  .footer-bg label{
+      padding: 10px 5px 5px 5px;
+      font-size: 12px;
+  }
+}
