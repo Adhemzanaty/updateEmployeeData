@@ -45,11 +45,8 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/jquery/dist/jquery-3.5.1.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "node_modules/@popperjs/core/dist/umd/popperOld.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/bootstrap/dist/js/bootstrapOld.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
 
             ]
 
@@ -115,5 +112,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "fcf35959-005f-47ec-8b92-a157e0103d63"
   }
 }
