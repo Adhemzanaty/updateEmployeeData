@@ -36,7 +36,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="dateOfBirth">تاريخ الميلاد (mm/dd/yyyy)</label>
-              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control">
+              <input type="date" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control">
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 تاريخ الميلاد مطلوب
               </div>
@@ -168,7 +168,7 @@
             
             <div class="form-group">
               <label for="spouseDateOfBirth">تاريخ ميلاد الزوج/الزوجة</label>
-              <input type="text" id="spouseDateOfBirth" formControlName="spouseDateOfBirth" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="spouseDateOfBirth" formControlName="spouseDateOfBirth" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -422,7 +422,7 @@
             
             <div class="form-group">
               <label for="dateOfAppointment">تاريخ التعيين</label>
-              <input type="text" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
               <div *ngIf="employeeForm.controls.dateOfAppointment.touched && employeeForm.controls.dateOfAppointment.invalid" class="error-message">
                 تاريخ التعيين مطلوب
               </div>
@@ -492,12 +492,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="assignmentStartDate">بداية التكليف</label>
-              <input type="text" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="assignmentEndDate">نهاية التكليف</label>
-              <input type="text" id="assignmentEndDate" formControlName="assignmentEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="assignmentEndDate" formControlName="assignmentEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
         </div>
@@ -544,7 +544,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="scholarshipStartDate">بداية الاتبعاث</label>
-              <input type="text" id="scholarshipStartDate" formControlName="scholarshipStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="scholarshipStartDate" formControlName="scholarshipStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
@@ -556,7 +556,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="scholarshipEndDate">نهاية الاتبعاث</label>
-              <input type="text" id="scholarshipEndDate" formControlName="scholarshipEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="scholarshipEndDate" formControlName="scholarshipEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group full-width">
@@ -580,12 +580,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="leaveStartDate">بداية الإجازة</label>
-              <input type="text" id="leaveStartDate" formControlName="leaveStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="leaveStartDate" formControlName="leaveStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="leaveEndDate">نهاية الإجازة</label>
-              <input type="text" id="leaveEndDate" formControlName="leaveEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="leaveEndDate" formControlName="leaveEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -727,14 +727,14 @@
             
             <div class="form-group">
               <label for="classificationIssueDate">تاريخ إصدار التصنيف</label>
-              <input type="text" id="classificationIssueDate" formControlName="classificationIssueDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="classificationIssueDate" formControlName="classificationIssueDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-group full-width">
               <label for="classificationExpiryDate">تاريخ انتهاء التصنيف</label>
-              <input type="text" id="classificationExpiryDate" formControlName="classificationExpiryDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="classificationExpiryDate" formControlName="classificationExpiryDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -769,12 +769,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="courseStartDate">بداية الدورة</label>
-              <input type="text" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="courseEndDate">نهاية الدورة</label>
-              <input type="text" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -817,12 +817,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="experienceStartDate">بداية الخبرة</label>
-              <input type="text" id="experienceStartDate" formControlName="experienceStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="experienceStartDate" formControlName="experienceStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="experienceEndDate">نهاية الخبرة</label>
-              <input type="text" id="experienceEndDate" formControlName="experienceEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" id="experienceEndDate" formControlName="experienceEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
