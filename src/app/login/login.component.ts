@@ -16,7 +16,7 @@ export class LoginComponent {
   loginText:any;
   checkLoginVar:any;
   loginForm = new FormGroup({
-    nationalId: new FormControl('' , [Validators.required, Validators.pattern('^[0-9]*') , Validators.minLength(10), Validators.maxLength(10)]),
+    nationalId: new FormControl('' , [Validators.required, Validators.pattern('^[0-9]*') , Validators.minLength(4), Validators.maxLength(10)]),
     OTP: new FormControl('' , [Validators.required, Validators.pattern('^[0-9]*') , Validators.minLength(4), Validators.maxLength(4)]),
 
   })
@@ -36,7 +36,7 @@ export class LoginComponent {
 
   checkLogin(x:any){
 
-    if(x.value.nationalId.length == 10 && x.value.OTP.length == 0){
+    if(x.value.nationalId.length > 4 && x.value.OTP.length == 0){
 
       // alert('round 1');
       this._APIService.show();
@@ -46,11 +46,11 @@ export class LoginComponent {
 
             console.log(x);
               this.isCodeSent = x.isCodeSent;
-              this.loginText = x.enMessage;
+              this.loginText = x.message;
               this._APIService.hide();
             });
       
-    }else if(x.value.nationalId.length == 10 && x.value.OTP.length == 4){
+    }else if(x.value.nationalId.length > 4 && x.value.OTP.length == 4){
 
             // alert('round 2');
 
@@ -67,6 +67,7 @@ export class LoginComponent {
             if(x.success){
 
               // alert('success');
+              this._APIService.setData(x);
               this._APIService.token.next(x.token);
               this._Router.navigate(['/home']);
               this._APIService.checkLogin.next(true);
@@ -85,7 +86,7 @@ export class LoginComponent {
 
             });
       
-    }else if(x.value.nationalId.length == 10 && x.value.OTP.length != 4){
+    }else if(x.value.nationalId.length > 4 && x.value.OTP.length != 4){
             alert('يجب ان يتكون الرمز المؤقت من 4 ارقام');
 
     }else{

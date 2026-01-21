@@ -3,6 +3,7 @@
 	<div class="darkBg"></div>
     <div class="form-container d-flex align-items-center justify-content-center " dir="rtl">
         <form [formGroup]="loginForm" (ngSubmit)="checkLogin(loginForm)">
+            <h4 class="py-3">تحديث بيانات الموظفين</h4>
             <h1 class="py-3">تسجيل دخول</h1>
 
             <div class="w-100">
@@ -15,10 +16,10 @@
 
 
             <div *ngIf="isCodeSent" class="w-100 OTPInput">
-                    <input class="form-control" type="text" placeholder="OTP" formControlName="OTP" />
+                    <input class="form-control" type="text" placeholder="رمز التحقق" formControlName="OTP" />
                     <div *ngIf="loginForm.controls.OTP.invalid && loginForm.controls.OTP.touched"
                         class="alert alert-danger text-center w-100" role="alert">
-                        من فضلك ادخل رمز المرور المرسل الى جوالك
+                        من فضلك ادخل رمز التحقق المرسل الى جوالك
                     </div>
             </div>
 

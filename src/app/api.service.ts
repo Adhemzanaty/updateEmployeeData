@@ -61,6 +61,14 @@ export class APIService {
 
   // private header = new HttpHeaders({'content-type':'application/json','Accept':'application/json'});
 
+  // 1. المتغير اللي هتخزن فيه الاوبجيكت
+  private myData = new BehaviorSubject<any>({});
+  
+  // 2. ده اللي هتستخدمه في الكومبوننت
+  public myData$ = this.myData.asObservable();
+
+
+  // 3. دالة تخزين الاوبجيكت
 
   constructor(private _httpClient:HttpClient) { 
 
@@ -80,7 +88,14 @@ export class APIService {
   }
   
   
+  setData(obj: any) {
+    this.myData.next(obj);
+  }
 
+  // 4. دالة جلب الداتا
+  getData() {
+    return this.myData.getValue();
+  }
 
   
 
@@ -95,89 +110,12 @@ export class APIService {
   // }
 
   
-  getPlans():Observable<any>{
+ 
+
+  EmpInformationUpdate( data:any):Observable<any>{
 
 
-    let res = this._httpClient.get( this.apiLink+'plans' , {headers: this.header});
-
-    // console.log(this.header);
-    return res;
-
-  }
-
-
-    deletePlans(id:any):Observable<any>{
-
-
-    let res = this._httpClient.delete( this.apiLink+'plans/'+id , {headers: this.header});
-
-    return res;
-
-  }
-
-
-    addPlans(data:any):Observable<any>{
-
-
-    let res = this._httpClient.post( this.apiLink+'plans' , data , {headers: this.header});
-
-    return res;
-
-  }
-
-
-  getGoals(id:any):Observable<any>{
-
-
-    let res = this._httpClient.get( this.apiLink+'goals/plan/'+id , {headers: this.header});
-
-    return res;
-
-  }
-
-  addGoals( data:any):Observable<any>{
-
-
-    let res = this._httpClient.post( this.apiLink+'Goals/', data , {headers: this.header});
-
-    return res;
-
-  }
-  
-  deleteGoals(id:any):Observable<any>{
-
-
-    let res = this._httpClient.delete( this.apiLink+'Goals/'+id , {headers: this.header});
-
-    return res;
-
-  }
-
-  
-  getTasks(id:any):Observable<any>{
-
-
-    let res = this._httpClient.get( this.apiLink+'tasks/goal/'+id , {headers: this.header});
-
-    return res;
-
-  }
-
-
-  addTasks( data:any):Observable<any>{
-
-
-    let res = this._httpClient.post( this.apiLink+'Tasks/', data , {headers: this.header});
-
-    return res;
-
-  }
-
-    
-  deleteTasks(id:any):Observable<any>{
-
-
-    let res = this._httpClient.delete( this.apiLink+'Tasks/'+id , {headers: this.header});
+    let res = this._httpClient.post( this.apiLink+'EmpInformationUpdate', data , {headers: this.header});
 
     return res;
 
@@ -186,7 +124,7 @@ export class APIService {
     CheckUserNationalId(nationalId:any):Observable<any>{
 
 
-    let res = this._httpClient.post( this.apiLink+'Accounts/CheckUserNationalId/'+nationalId , {headers: this.header});
+    let res = this._httpClient.post( this.apiLink+'Accounts/SendCodeToEmp/'+nationalId , {headers: this.header});
 
     return res;
 
@@ -195,7 +133,7 @@ export class APIService {
     login(data:any):Observable<any>{
 
 
-    let res = this._httpClient.post( this.apiLink+'Accounts/Login', data , {headers: this.header});
+    let res = this._httpClient.post( this.apiLink+'Accounts/CheckOtp', data , {headers: this.header});
 
     return res;
 
