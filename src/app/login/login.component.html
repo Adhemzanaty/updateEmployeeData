@@ -1,0 +1,41 @@
+
+<section class="d-flex justify-content-center align-items-center" dir="ltr">
+	<div class="darkBg"></div>
+    <div class="form-container d-flex align-items-center justify-content-center " dir="rtl">
+        <form [formGroup]="loginForm" (ngSubmit)="checkLogin(loginForm)">
+            <h1 class="py-3">تسجيل دخول</h1>
+
+            <div class="w-100">
+                    <input class="form-control" type="text" placeholder="رقم الهوية" formControlName="nationalId" />
+                    <div *ngIf="loginForm.controls.nationalId.invalid && loginForm.controls.nationalId.touched"
+                        class="alert alert-danger text-start w-100" role="alert">
+                        من فضلك ادخل رقم الهوية
+                    </div>
+            </div>
+
+
+            <div *ngIf="isCodeSent" class="w-100 OTPInput">
+                    <input class="form-control" type="text" placeholder="OTP" formControlName="OTP" />
+                    <div *ngIf="loginForm.controls.OTP.invalid && loginForm.controls.OTP.touched"
+                        class="alert alert-danger text-center w-100" role="alert">
+                        من فضلك ادخل رمز المرور المرسل الى جوالك
+                    </div>
+            </div>
+
+            <h6 class="text-danger">{{loginText}}</h6>
+
+            <!-- <input class="form-control" type="number" placeholder="National Id" /> -->
+            <!-- <input class="form-control OTPInput" type="number" placeholder="OTP" /> -->
+
+            <button class="my-3" type="submit" [disabled]="loginForm.controls.nationalId.invalid">تسجيل دخول</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل....</p></div>

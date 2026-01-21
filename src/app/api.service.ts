@@ -14,40 +14,17 @@ export class APIService {
 
 
 
-  private countryNameSubject = new BehaviorSubject<any | null>(null);
-  countryName= this.countryNameSubject.asObservable();
+  // private countryNameSubject = new BehaviorSubject<any | null>(null);
+  // countryName= this.countryNameSubject.asObservable();
 
-  setCountryName(code: any) 
-    {this.countryNameSubject.next(code);}
+  // setCountryName(code: any) 
+  //   {this.countryNameSubject.next(code);}
   
 
-  getCountryName(): any | null 
-    {return this.countryNameSubject.getValue();}
+  // getCountryName(): any | null 
+  //   {return this.countryNameSubject.getValue();
 
-
-
-
-
-  private countryCodeSubject = new BehaviorSubject<string | null>(null);
-  countryCode= this.countryCodeSubject.asObservable();
-
-  setCountryCode(code: string) 
-    {this.countryCodeSubject.next(code);}
-  
-
-  getCountryCode(): string | null 
-    {return this.countryCodeSubject.getValue();}
-
-
-    private countryCurrencySubject = new BehaviorSubject<string | null>(null);
-    countryCurrency= this.countryCurrencySubject.asObservable();
-  
-    setCountryCurrency(currency: string) 
-      {this.countryCurrencySubject.next(currency);}
-    
-  
-    getCountryCurrency(): string | null 
-      {return this.countryCurrencySubject.getValue();}
+  //   }
 
 
       
@@ -71,25 +48,28 @@ export class APIService {
 
 
 
-  apiLink = 'https://magic-eg.net/public/api/';
+  apiLink = 'https://pshrcser.pshrc.med.sa:5678/api/';
 
 
   checkLogin = new BehaviorSubject(false);
   // window = new BehaviorSubject(1);
-  // token = new BehaviorSubject('');
+  token = new BehaviorSubject('');
   // Dwindow:any;
 
-  // ourToken:string | undefined;
-  // header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer `};
+  ourToken:string | undefined;
+  header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer `};
+
+  // private header = new HttpHeaders({'content-type':'application/json','Accept':'application/json'});
+
 
   constructor(private _httpClient:HttpClient) { 
 
-    // this.token.subscribe( (x) => {
+    this.token.subscribe( (x) => {
     
-    //   this.ourToken = x;
-    //   this.header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer ${this.ourToken}`};
+      this.ourToken = x;
+      this.header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer ${this.ourToken}`};
 
-    // } )
+    } )
 
     // this.window.subscribe( (x) => {
     
@@ -97,23 +77,6 @@ export class APIService {
 
     // } )
 
-  }
-
-
-  sendStory(data: any, imageFile: File): Observable<any> {
-    const formData = new FormData();
-  
-    // إضافة البيانات العادية
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        formData.append(key, data[key]);
-      }
-    }
-  
-    // إضافة الصورة
-    formData.append('child_image', imageFile); // 'image' هو اسم الباراميتر المطلوب في الـ backend
-  
-    return this._httpClient.post(this.apiLink + 'orders', formData);
   }
   
   
@@ -132,22 +95,124 @@ export class APIService {
   // }
 
   
-  getCountries():Observable<any>{
+  getPlans():Observable<any>{
 
 
-    let res = this._httpClient.get( this.apiLink+'countries');
+    let res = this._httpClient.get( this.apiLink+'plans' , {headers: this.header});
+
+    // console.log(this.header);
+    return res;
+
+  }
+
+
+    deletePlans(id:any):Observable<any>{
+
+
+    let res = this._httpClient.delete( this.apiLink+'plans/'+id , {headers: this.header});
 
     return res;
 
   }
 
-  getCoupons(coupon:any):Observable<any>{
+
+    addPlans(data:any):Observable<any>{
 
 
-    let res = this._httpClient.get( this.apiLink+'coupons/' + coupon);
+    let res = this._httpClient.post( this.apiLink+'plans' , data , {headers: this.header});
 
     return res;
 
   }
+
+
+  getGoals(id:any):Observable<any>{
+
+
+    let res = this._httpClient.get( this.apiLink+'goals/plan/'+id , {headers: this.header});
+
+    return res;
+
+  }
+
+  addGoals( data:any):Observable<any>{
+
+
+    let res = this._httpClient.post( this.apiLink+'Goals/', data , {headers: this.header});
+
+    return res;
+
+  }
+  
+  deleteGoals(id:any):Observable<any>{
+
+
+    let res = this._httpClient.delete( this.apiLink+'Goals/'+id , {headers: this.header});
+
+    return res;
+
+  }
+
+  
+  getTasks(id:any):Observable<any>{
+
+
+    let res = this._httpClient.get( this.apiLink+'tasks/goal/'+id , {headers: this.header});
+
+    return res;
+
+  }
+
+
+  addTasks( data:any):Observable<any>{
+
+
+    let res = this._httpClient.post( this.apiLink+'Tasks/', data , {headers: this.header});
+
+    return res;
+
+  }
+
+    
+  deleteTasks(id:any):Observable<any>{
+
+
+    let res = this._httpClient.delete( this.apiLink+'Tasks/'+id , {headers: this.header});
+
+    return res;
+
+  }
+
+    CheckUserNationalId(nationalId:any):Observable<any>{
+
+
+    let res = this._httpClient.post( this.apiLink+'Accounts/CheckUserNationalId/'+nationalId , {headers: this.header});
+
+    return res;
+
+  }
+
+    login(data:any):Observable<any>{
+
+
+    let res = this._httpClient.post( this.apiLink+'Accounts/Login', data , {headers: this.header});
+
+    return res;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
