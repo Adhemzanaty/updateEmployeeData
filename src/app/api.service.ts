@@ -14,40 +14,17 @@ export class APIService {
 
 
 
-  private countryNameSubject = new BehaviorSubject<any | null>(null);
-  countryName= this.countryNameSubject.asObservable();
+  // private countryNameSubject = new BehaviorSubject<any | null>(null);
+  // countryName= this.countryNameSubject.asObservable();
 
-  setCountryName(code: any) 
-    {this.countryNameSubject.next(code);}
+  // setCountryName(code: any) 
+  //   {this.countryNameSubject.next(code);}
   
 
-  getCountryName(): any | null 
-    {return this.countryNameSubject.getValue();}
+  // getCountryName(): any | null 
+  //   {return this.countryNameSubject.getValue();
 
-
-
-
-
-  private countryCodeSubject = new BehaviorSubject<string | null>(null);
-  countryCode= this.countryCodeSubject.asObservable();
-
-  setCountryCode(code: string) 
-    {this.countryCodeSubject.next(code);}
-  
-
-  getCountryCode(): string | null 
-    {return this.countryCodeSubject.getValue();}
-
-
-    private countryCurrencySubject = new BehaviorSubject<string | null>(null);
-    countryCurrency= this.countryCurrencySubject.asObservable();
-  
-    setCountryCurrency(currency: string) 
-      {this.countryCurrencySubject.next(currency);}
-    
-  
-    getCountryCurrency(): string | null 
-      {return this.countryCurrencySubject.getValue();}
+  //   }
 
 
       
@@ -71,25 +48,36 @@ export class APIService {
 
 
 
-  apiLink = 'https://magic-eg.net/public/api/';
+  apiLink = 'https://pshrcser.pshrc.med.sa:5678/api/';
 
 
   checkLogin = new BehaviorSubject(false);
   // window = new BehaviorSubject(1);
-  // token = new BehaviorSubject('');
+  token = new BehaviorSubject('');
   // Dwindow:any;
 
-  // ourToken:string | undefined;
-  // header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer `};
+  ourToken:string | undefined;
+  header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer `};
+
+  // private header = new HttpHeaders({'content-type':'application/json','Accept':'application/json'});
+
+  // 1. المتغير اللي هتخزن فيه الاوبجيكت
+  private myData = new BehaviorSubject<any>({});
+  
+  // 2. ده اللي هتستخدمه في الكومبوننت
+  public myData$ = this.myData.asObservable();
+
+
+  // 3. دالة تخزين الاوبجيكت
 
   constructor(private _httpClient:HttpClient) { 
 
-    // this.token.subscribe( (x) => {
+    this.token.subscribe( (x) => {
     
-    //   this.ourToken = x;
-    //   this.header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer ${this.ourToken}`};
+      this.ourToken = x;
+      this.header = {'content-type':'application/json','Accept':'application/json','Authorization':`Bearer ${this.ourToken}`};
 
-    // } )
+    } )
 
     // this.window.subscribe( (x) => {
     
@@ -98,26 +86,16 @@ export class APIService {
     // } )
 
   }
-
-
-  sendStory(data: any, imageFile: File): Observable<any> {
-    const formData = new FormData();
   
-    // إضافة البيانات العادية
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        formData.append(key, data[key]);
-      }
-    }
   
-    // إضافة الصورة
-    formData.append('child_image', imageFile); // 'image' هو اسم الباراميتر المطلوب في الـ backend
-  
-    return this._httpClient.post(this.apiLink + 'orders', formData);
+  setData(obj: any) {
+    this.myData.next(obj);
   }
-  
-  
 
+  // 4. دالة جلب الداتا
+  getData() {
+    return this.myData.getValue();
+  }
 
   
 
@@ -132,22 +110,47 @@ export class APIService {
   // }
 
   
-  getCountries():Observable<any>{
+ 
+
+  EmpInformationUpdate( data:any):Observable<any>{
 
 
-    let res = this._httpClient.get( this.apiLink+'countries');
+    let res = this._httpClient.post( this.apiLink+'EmpInformationUpdate', data , {headers: this.header});
+
+    return res;
+
+  }
+
+    CheckUserNationalId(nationalId:any):Observable<any>{
+
+
+    let res = this._httpClient.post( this.apiLink+'Accounts/SendCodeToEmp/'+nationalId , {headers: this.header});
 
     return res;
 
   }
 
-  getCoupons(coupon:any):Observable<any>{
+    login(data:any):Observable<any>{
 
 
-    let res = this._httpClient.get( this.apiLink+'coupons/' + coupon);
+    let res = this._httpClient.post( this.apiLink+'Accounts/CheckOtp', data , {headers: this.header});
 
     return res;
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

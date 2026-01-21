@@ -18,7 +18,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="fullName">الاسم الكامل</label>
-              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم">
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم" [(ngModel)]="allData.empname">
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 الاسم الكامل مطلوب
               </div>
@@ -26,7 +26,7 @@
             
             <div class="form-group">
               <label for="nationalId">رقم الهوية الوطنية</label>
-              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="رقم الهوية">
+              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="رقم الهوية" [(ngModel)]="allData.nationalId">
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 رقم الهوية الوطنية مطلوب
               </div>
@@ -77,7 +77,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="mobileNumber">رقم الجوال (يبدأ بـ 05)</label>
-              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX">
+              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile">
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 رقم الجوال مطلوب ويجب أن يبدأ بـ 05 ويتبعه 8 أرقام
               </div>
@@ -414,7 +414,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="organization">الجهة</label>
-              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="اسم الجهة">
+              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="اسم الجهة" [(ngModel)]="allData.placeofwork">
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 الجهة مطلوبة
               </div>
@@ -440,7 +440,7 @@
             
             <div class="form-group">
               <label for="administration">الإدارة</label>
-              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="اسم الإدارة">
+              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="اسم الإدارة" [(ngModel)]="allData.empdepname">
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 الإدارة مطلوبة
               </div>
@@ -842,3 +842,12 @@
       </div>
     </form>
   </div>
+
+
+
+
+  
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">جاري التحميل....</p></div>

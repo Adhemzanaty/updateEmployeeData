@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { APIService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit{
 
 
 
-  
+  allData:any;
   // Options for dropdowns
   maritalStatusOptions = ['أعزب', 'متزوج', 'مطلق', 'أرمل'];
   genderOptions = ['ذكر', 'أنثى'];
@@ -29,13 +30,20 @@ export class HomeComponent implements OnInit{
   leaveTypeOptions = ['بدون راتب', 'مرافقة مريض'];
   qualificationTypeOptions = ['جامعة', 'معهد', 'دبلوم', 'تدريبي', 'دراسي'];
   
-  constructor(private _APIService: APIService , private fb: FormBuilder) {
+  constructor(public _APIService: APIService , private fb: FormBuilder , private _Router:Router) {
   }
 
   ngOnInit(): void {
     this.resetForm();
-  }
 
+      // جلب الداتا
+      this.getObject();
+  }
+  getObject() {
+    this.allData = this._APIService.getData();
+    console.log(this.allData); // هتظهر الاوبجيكت
+    return this.allData;
+  }
 
       // القسم الأول: البيانات الأساسية والتعريفية (13 حقل)
       employeeForm = new FormGroup({
@@ -161,25 +169,36 @@ export class HomeComponent implements OnInit{
 
 
   onSubmit(x:any){
-  console.log(x);
 
+
+  console.log(x.value);
+
+  this._APIService.show();
+
+  this._APIService.EmpInformationUpdate(x.value).subscribe( (x) => {
+
+
+    if(x.isSuccess){
+      console.log(x);
+      alert('تم تسجيل بياناتك بنجاح شكرا لك');
+      this._Router.navigate(['/login']);
+      this._APIService.hide();
+    }else{
+      alert('الرجاء المحاولة في وقت لاحق');
+    }
+     
+
+      });
 
   this.resetForm();
   }
 
-  // دالة لوضع علامة على جميع الحقول كملموسة لعرض أخطاء التحقق
-  // private markFormGroupTouched(formGroup: FormGroup): void {
-  //   Object.values(formGroup.controls).forEach(control => {
-  //     control.markAsTouched();
-  //     if (control instanceof FormGroup) {
-  //       this.markFormGroupTouched(control);
-  //     }
-  //   });
-  // }
+
 
   resetForm(): void {
     this.employeeForm.reset();
   }
+
 
 
 
