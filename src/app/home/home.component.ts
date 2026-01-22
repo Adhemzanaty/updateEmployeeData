@@ -58,9 +58,9 @@ export class HomeComponent implements OnInit{
         mobileNumber: new FormControl('', [Validators.required, Validators.pattern(/^05\d{8}$/)]),
         email: new FormControl('', [Validators.required, Validators.email]),
         nationalAddress: new FormControl('' , [Validators.required ]),
-        district: new FormControl('' , [Validators.required ]),
+        district: new FormControl(''),
         currentResidence: new FormControl('' , [Validators.required ]),
-        city: new FormControl('' , [Validators.required ]),
+        city: new FormControl('' ),
 
       // القسم الثاني: الحالة الاجتماعية والعائلية (11 حقل)
 
@@ -86,11 +86,15 @@ export class HomeComponent implements OnInit{
         motherName: new FormControl('' , [Validators.required ]),
         motherMobileNumber: new FormControl('', Validators.pattern(/^05\d{8}$/)),
         motherResidence: new FormControl(''),
+        fatherBirthDate: new FormControl(''),
+        motherBirthDate: new FormControl(''),
         // الحقول 31-36: بيانات شخص الطوارئ
         emergencyContactName: new FormControl('' , [Validators.required ]),
         emergencyContactNumber: new FormControl('', [Validators.required, Validators.pattern(/^05\d{8}$/)]),
         relationshipToEmergencyContact: new FormControl('' , [Validators.required ]),
         worksAtSameOrganization: new FormControl('' , [Validators.required ]),
+
+
 
       // القسم الرابع: البيانات الوظيفية الأساسية (12 حقل)
         // الحقول 37-42: المعلومات الوظيفية الأساسية

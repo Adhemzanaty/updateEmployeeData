@@ -23,7 +23,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="fullName">Full Name</label>
+              <label for="fullName">Full Name <span class="required-star">*</span></label>
               <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname" >
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 Full name is required
@@ -31,7 +31,7 @@
             </div>
             
             <div class="form-group">
-              <label for="nationalId">National ID Number</label>
+              <label for="nationalId">National ID Number <span class="required-star">*</span></label>
               <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId" >
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 National ID number is required
@@ -41,7 +41,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="dateOfBirth">Date of Birth (mm/dd/yyyy)</label>
+              <label for="dateOfBirth">Date of Birth (mm/dd/yyyy) <span class="required-star">*</span></label>
               <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" >
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 Date of birth is required
@@ -49,7 +49,7 @@
             </div>
             
             <div class="form-group">
-              <label for="nationality">Nationality</label>
+              <label for="nationality">Nationality <span class="required-star">*</span></label>
               <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" >
               <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
                 Nationality is required
@@ -59,7 +59,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="gender">Gender</label>
+              <label for="gender">Gender <span class="required-star">*</span></label>
               <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender" >
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
                 Gender is required
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group">
-              <label for="placeOfBirth">Place of Birth</label>
+              <label for="placeOfBirth">Place of Birth <span class="required-star">*</span></label>
               <input type="text" id="placeOfBirth" formControlName="placeOfBirth" class="form-control" placeholder="Place of Birth">
               <div *ngIf="employeeForm.controls.placeOfBirth.touched && employeeForm.controls.placeOfBirth.invalid" class="error-message">
                 Place of birth is required
@@ -79,7 +79,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="mobileNumber">Mobile Number (Starts with 05)</label>
+              <label for="mobileNumber">Mobile Number (Starts with 05) <span class="required-star">*</span></label>
               <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" >
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 Mobile number is required and must start with 05 followed by 8 digits
@@ -87,7 +87,7 @@
             </div>
             
             <div class="form-group">
-              <label for="email">Email Address</label>
+              <label for="email">Email Address <span class="required-star">*</span></label>
               <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" >
               <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
                 Valid email address is required
@@ -97,38 +97,38 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="nationalAddress">National Address</label>
+              <label for="nationalAddress">National Address <span class="required-star">*</span></label>
               <input type="text" id="nationalAddress" formControlName="nationalAddress" class="form-control" placeholder="National Address">
               <div *ngIf="employeeForm.controls.nationalAddress.touched && employeeForm.controls.nationalAddress.invalid" class="error-message">
                 National address is required
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="district">District</label>
+            <!-- <div class="form-group">
+              <label for="district">District <span class="required-star">*</span></label>
               <input type="text" id="district" formControlName="district" class="form-control" placeholder="District Name">
               <div *ngIf="employeeForm.controls.district.touched && employeeForm.controls.district.invalid" class="error-message">
                 District is required
               </div>
-            </div>
+            </div> -->
           </div>
           
           <div class="form-row">
             <div class="form-group">
-              <label for="currentResidence">Current Address</label>
+              <label for="currentResidence">Current Address <span class="required-star">*</span></label>
               <input type="text" id="currentResidence" formControlName="currentResidence" class="form-control" placeholder="Current Address">
               <div *ngIf="employeeForm.controls.currentResidence.touched && employeeForm.controls.currentResidence.invalid" class="error-message">
                 Current address is required
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="city">City</label>
+            <!-- <div class="form-group">
+              <label for="city">City <span class="required-star">*</span></label>
               <input type="text" id="city" formControlName="city" class="form-control" placeholder="City">
               <div *ngIf="employeeForm.controls.city.touched && employeeForm.controls.city.invalid" class="error-message">
                 City is required
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="maritalStatus">Marital Status</label>
+              <label for="maritalStatus">Marital Status <span class="required-star">*</span></label>
               <select id="maritalStatus" formControlName="maritalStatus" class="form-control">
                 <option value="">Select Marital Status</option>
                 <option *ngFor="let option of maritalStatusOptions" [value]="option">{{option}}</option>
@@ -185,7 +185,7 @@
             </div>
             
             <div class="form-group">
-              <label for="hasDependents">Do You Have Dependents?</label>
+              <label for="hasDependents">Do You Have Dependents? <span class="required-star">*</span></label>
               <select id="hasDependents" formControlName="hasDependents" class="form-control">
                 <option value="">Select Answer</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -200,7 +200,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="numberOfChildren">Number of Children</label>
+              <label for="numberOfChildren">Number of Children <span class="required-star">*</span></label>
               <input type="text" id="numberOfChildren" formControlName="numberOfChildren" class="form-control" min="0">
               <div *ngIf="employeeForm.controls.numberOfChildren.touched && employeeForm.controls.numberOfChildren.invalid" class="error-message">
                 Number of children is required
@@ -208,7 +208,7 @@
             </div>
             
             <div class="form-group">
-              <label for="fromMartyrsFamilies">From Martyrs' Families</label>
+              <label for="fromMartyrsFamilies">From Martyrs' Families <span class="required-star">*</span></label>
               <select id="fromMartyrsFamilies" formControlName="fromMartyrsFamilies" class="form-control">
                 <option value="">Select Answer</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -226,7 +226,7 @@
             </div>
             
             <div class="form-group">
-              <label for="personOfDetermination">Person of Determination</label>
+              <label for="personOfDetermination">Person of Determination <span class="required-star">*</span></label>
               <select id="personOfDetermination" formControlName="personOfDetermination" class="form-control">
                 <option value="">Select Answer</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -260,7 +260,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="fatherName">Father's Name</label>
+              <label for="fatherName">Father's Name <span class="required-star">*</span></label>
               <input type="text" id="fatherName" formControlName="fatherName" class="form-control" placeholder="Father's Name">
               <div *ngIf="employeeForm.controls.fatherName.touched && employeeForm.controls.fatherName.invalid" class="error-message">
                 Father's name is required
@@ -275,12 +275,27 @@
           
           <div class="form-row">
             <div class="form-group">
+              <label for="fatherBirthDate">father's Birthday </label>
+              <input type="date" id="fatherBirthDate" formControlName="fatherBirthDate" class="form-control" placeholder="father's Birthday">
+            
+            </div>
+            
+            <div class="form-group">
+              <label for="motherBirthDate">Mother's Birthday </label>
+              <input type="date" id="motherBirthDate" formControlName="motherBirthDate" class="form-control" placeholder="Mother's Birthday">
+            
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group">
               <label for="fatherResidence">Father's Residence</label>
               <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence">
             </div>
             
             <div class="form-group">
-              <label for="motherName">Mother's Name</label>
+              <label for="motherName">Mother's Name <span class="required-star">*</span></label>
               <input type="text" id="motherName" formControlName="motherName" class="form-control" placeholder="Mother's Name">
               <div *ngIf="employeeForm.controls.motherName.touched && employeeForm.controls.motherName.invalid" class="error-message">
                 Mother's name is required
@@ -304,7 +319,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="emergencyContactName">Emergency Contact Name</label>
+              <label for="emergencyContactName">Emergency Contact Name <span class="required-star">*</span></label>
               <input type="text" id="emergencyContactName" formControlName="emergencyContactName" class="form-control" placeholder="Emergency Contact Name">
               <div *ngIf="employeeForm.controls.emergencyContactName.touched && employeeForm.controls.emergencyContactName.invalid" class="error-message">
                 Emergency contact name is required
@@ -312,7 +327,7 @@
             </div>
             
             <div class="form-group">
-              <label for="emergencyContactNumber">Emergency Contact Number</label>
+              <label for="emergencyContactNumber">Emergency Contact Number <span class="required-star">*</span></label>
               <input type="text" id="emergencyContactNumber" formControlName="emergencyContactNumber" class="form-control" placeholder="05XXXXXXXX">
               <div *ngIf="employeeForm.controls.emergencyContactNumber.touched && employeeForm.controls.emergencyContactNumber.invalid" class="error-message">
                 Emergency contact number is required
@@ -322,7 +337,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="relationshipToEmergencyContact">Relationship</label>
+              <label for="relationshipToEmergencyContact">Relationship <span class="required-star">*</span></label>
               <input type="text" id="relationshipToEmergencyContact" formControlName="relationshipToEmergencyContact" class="form-control" placeholder="Example: Father, Brother">
               <div *ngIf="employeeForm.controls.relationshipToEmergencyContact.touched && employeeForm.controls.relationshipToEmergencyContact.invalid" class="error-message">
                 Relationship is required
@@ -330,7 +345,7 @@
             </div>
             
             <div class="form-group">
-              <label for="worksAtSameOrganization">Works at Same Organization?</label>
+              <label for="worksAtSameOrganization">Works at Same Organization? <span class="required-star">*</span></label>
               <select id="worksAtSameOrganization" formControlName="worksAtSameOrganization" class="form-control">
                 <option value="">Select Answer</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -357,7 +372,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="employeeCategory">Employee Category</label>
+              <label for="employeeCategory">Employee Category <span class="required-star">*</span></label>
               <select id="employeeCategory" formControlName="employeeCategory" class="form-control">
                 <option value="">Select Category</option>
                 <option *ngFor="let option of employeeCategoryOptions" [value]="option">{{option}}</option>
@@ -368,7 +383,7 @@
             </div>
             
             <div class="form-group">
-              <label for="employeeId">Employee ID</label>
+              <label for="employeeId">Employee ID <span class="required-star">*</span></label>
               <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="Employee ID" [(ngModel)]="jobNumber" [readonly]="true">
               <div *ngIf="employeeForm.controls.employeeId.touched && employeeForm.controls.employeeId.invalid" class="error-message">
                 Employee ID is required
@@ -378,7 +393,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="currentWorkNature">Current Work Nature</label>
+              <label for="currentWorkNature">Current Work Nature <span class="required-star">*</span></label>
               <input type="text" id="currentWorkNature" formControlName="currentWorkNature" class="form-control" placeholder="Current Work Nature">
               <div *ngIf="employeeForm.controls.currentWorkNature.touched && employeeForm.controls.currentWorkNature.invalid" class="error-message">
                 Current work nature is required
@@ -386,7 +401,7 @@
             </div>
             
             <div class="form-group">
-              <label for="jobTitle">Job Title</label>
+              <label for="jobTitle">Job Title <span class="required-star">*</span></label>
               <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.ejobTitle" >
               <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
                 Job title is required
@@ -396,7 +411,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="gradeLevel">Grade and Level</label>
+              <label for="gradeLevel">Grade and Level <span class="required-star">*</span></label>
               <input type="text" id="gradeLevel" formControlName="gradeLevel" class="form-control" placeholder="Example: Grade 5 - Level 3">
               <div *ngIf="employeeForm.controls.gradeLevel.touched && employeeForm.controls.gradeLevel.invalid" class="error-message">
                 Grade and level are required
@@ -404,7 +419,7 @@
             </div>
             
             <div class="form-group">
-              <label for="natureWorkTitle">Work Nature Title</label>
+              <label for="natureWorkTitle">Work Nature Title <span class="required-star">*</span></label>
               <input type="text" id="natureWorkTitle" formControlName="natureWorkTitle" class="form-control" placeholder="Actual Work Title">
               <div *ngIf="employeeForm.controls.natureWorkTitle.touched && employeeForm.controls.natureWorkTitle.invalid" class="error-message">
                 Work nature title is required
@@ -416,7 +431,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="organization">Organization</label>
+              <label for="organization">Organization <span class="required-star">*</span></label>
               <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.eplaceofwork" >
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 Organization is required
@@ -424,7 +439,7 @@
             </div>
             
             <div class="form-group">
-              <label for="dateOfAppointment">Appointment Date</label>
+              <label for="dateOfAppointment">Appointment Date <span class="required-star">*</span></label>
               <input type="date" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
               <div *ngIf="employeeForm.controls.dateOfAppointment.touched && employeeForm.controls.dateOfAppointment.invalid" class="error-message">
                 Appointment date is required
@@ -434,7 +449,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="department">Department</label>
+              <label for="department">Department <span class="required-star">*</span></label>
               <input type="text" id="department" formControlName="department" class="form-control" placeholder="Department Name">
               <div *ngIf="employeeForm.controls.department.touched && employeeForm.controls.department.invalid" class="error-message">
                 Department is required
@@ -442,7 +457,7 @@
             </div>
             
             <div class="form-group">
-              <label for="administration">Administration</label>
+              <label for="administration">Administration <span class="required-star">*</span></label>
               <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.eEempdepname" >
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 Administration is required
@@ -452,7 +467,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="employmentStatus">Employment Status</label>
+              <label for="employmentStatus">Employment Status <span class="required-star">*</span></label>
               <select id="employmentStatus" formControlName="employmentStatus" class="form-control">
                 <option value="">Select Status</option>
                 <option *ngFor="let option of employmentStatusOptions" [value]="option">{{option}}</option>
@@ -623,7 +638,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="educationalQualification">Educational Qualification</label>
+              <label for="educationalQualification">Educational Qualification <span class="required-star">*</span></label>
               <input type="text" id="educationalQualification" formControlName="educationalQualification" class="form-control" placeholder="Example: Bachelor's">
               <div *ngIf="employeeForm.controls.educationalQualification.touched && employeeForm.controls.educationalQualification.invalid" class="error-message">
                 Educational qualification is required
@@ -631,7 +646,7 @@
             </div>
             
             <div class="form-group">
-              <label for="typeOfQualification">Qualification Type</label>
+              <label for="typeOfQualification">Qualification Type <span class="required-star">*</span></label>
               <select id="typeOfQualification" formControlName="typeOfQualification" class="form-control">
                 <option value="">Select Type</option>
                 <option *ngFor="let option of qualificationTypeOptions" [value]="option">{{option}}</option>
@@ -644,7 +659,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="specificSpecialization">Specific Specialization</label>
+              <label for="specificSpecialization">Specific Specialization <span class="required-star">*</span></label>
               <input type="text" id="specificSpecialization" formControlName="specificSpecialization" class="form-control" placeholder="Specific Specialization">
               <div *ngIf="employeeForm.controls.specificSpecialization.touched && employeeForm.controls.specificSpecialization.invalid" class="error-message">
                 Specific specialization is required
@@ -652,7 +667,7 @@
             </div>
             
             <div class="form-group">
-              <label for="generalSpecialization">General Specialization</label>
+              <label for="generalSpecialization">General Specialization <span class="required-star">*</span></label>
               <input type="text" id="generalSpecialization" formControlName="generalSpecialization" class="form-control" placeholder="General Specialization">
               <div *ngIf="employeeForm.controls.generalSpecialization.touched && employeeForm.controls.generalSpecialization.invalid" class="error-message">
                 General specialization is required
@@ -664,7 +679,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="studySystem">Study System</label>
+              <label for="studySystem">Study System <span class="required-star">*</span></label>
               <select id="studySystem" formControlName="studySystem" class="form-control">
                 <option value="">Select System</option>
                 <option *ngFor="let option of studySystemOptions" [value]="option">{{option}}</option>
@@ -675,7 +690,7 @@
             </div>
             
             <div class="form-group">
-              <label for="graduationYear">Graduation Year</label>
+              <label for="graduationYear">Graduation Year <span class="required-star">*</span></label>
               <input type="text" id="graduationYear" formControlName="graduationYear" class="form-control" placeholder="Graduation Year">
               <div *ngIf="employeeForm.controls.graduationYear.touched && employeeForm.controls.graduationYear.invalid" class="error-message">
                 Graduation year is required
@@ -685,7 +700,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="graduationInstitution">Graduation Institution</label>
+              <label for="graduationInstitution">Graduation Institution <span class="required-star">*</span></label>
               <input type="text" id="graduationInstitution" formControlName="graduationInstitution" class="form-control" placeholder="University or Institute">
               <div *ngIf="employeeForm.controls.graduationInstitution.touched && employeeForm.controls.graduationInstitution.invalid" class="error-message">
                 Graduation institution is required
@@ -769,7 +784,7 @@
             </div>
           </div>
           
-          <div class="form-row">
+          <!-- <div class="form-row">
             <div class="form-group">
               <label for="courseStartDate">Course Start Date</label>
               <input type="date" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
@@ -779,17 +794,17 @@
               <label for="courseEndDate">Course End Date</label>
               <input type="date" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
-          </div>
+          </div> -->
           
           <div class="form-row">
             <div class="form-group">
-              <label for="courseDuration">Course Duration</label>
-              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course Duration">
+              <label for="courseDuration">Course type</label>
+              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course type">
             </div>
             
             <div class="form-group">
-              <label for="certificateNumber">Certificate Number</label>
-              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Certificate Number">
+              <label for="certificateNumber">Course field</label>
+              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Course field">
             </div>
           </div>
         </div>

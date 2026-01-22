@@ -259,3 +259,39 @@
   .lang-btn:last-child {
     border-left: 1px solid #dee2e6;
   }
+
+  /* أضف هذه الأنماط إلى CSS الموجود */
+
+.required-star {
+    color: red;
+    font-size: 16px;
+    margin-right: 3px;
+  }
+  
+  /* يمكنك أيضاً إضافة تنسيق للحقول الإجبارية الفارغة */
+  .form-control.ng-invalid.ng-touched {
+    border-color: #e74c3c;
+    border-left: 3px solid #e74c3c;
+  }
+  
+  /* تحسين ظهور النجمة في الـ labels */
+  .form-group label {
+    position: relative;
+  }
+  
+  /* أو بدلاً من ذلك يمكنك استخدام pseudo-element */
+  .required-field::after {
+    content: " *";
+    color: red;
+  }
+  
+  /* إذا كنت تريدين جعل النجمة تظهر فقط عند وجود خطأ */
+  .dynamic-required-star {
+    color: red;
+    font-size: 16px;
+    display: none;
+  }
+  
+  .has-error .dynamic-required-star {
+    display: inline;
+  }

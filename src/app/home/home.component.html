@@ -26,7 +26,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="fullName">الاسم الكامل</label>
+              <label for="fullName">الاسم الكامل <span class="required-star">*</span></label>
               <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم" [(ngModel)]="allData.empname" >
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 الاسم الكامل مطلوب
@@ -34,7 +34,7 @@
             </div>
             
             <div class="form-group">
-              <label for="nationalId">رقم الهوية الوطنية</label>
+              <label for="nationalId">رقم الهوية الوطنية <span class="required-star">*</span></label>
               <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="رقم الهوية" [(ngModel)]="allData.nationalId" >
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 رقم الهوية الوطنية مطلوب
@@ -44,7 +44,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="dateOfBirth">تاريخ الميلاد (mm/dd/yyyy)</label>
+              <label for="dateOfBirth">تاريخ الميلاد (mm/dd/yyyy) <span class="required-star">*</span></label>
               <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" >
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 تاريخ الميلاد مطلوب
@@ -52,7 +52,7 @@
             </div>
             
             <div class="form-group">
-              <label for="nationality">الجنسية</label>
+              <label for="nationality">الجنسية <span class="required-star">*</span></label>
               <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="الجنسية" [(ngModel)]="allData.nationality" >
               <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
                 الجنسية مطلوبة
@@ -64,7 +64,7 @@
 
 
             <div class="form-group">
-              <label for="gender">الجنس</label>
+              <label for="gender">الجنس <span class="required-star">*</span></label>
               <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="الجنس" [(ngModel)]="allData.gender" >
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
                 الجنس مطلوب
@@ -85,7 +85,7 @@
             </div> -->
             
             <div class="form-group">
-              <label for="placeOfBirth">مكان الميلاد</label>
+              <label for="placeOfBirth">مكان الميلاد <span class="required-star">*</span></label>
               <input type="text" id="placeOfBirth" formControlName="placeOfBirth" class="form-control" placeholder="مكان الميلاد">
               <div *ngIf="employeeForm.controls.placeOfBirth.touched && employeeForm.controls.placeOfBirth.invalid" class="error-message">
                 مكان الميلاد مطلوب
@@ -97,7 +97,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="mobileNumber">رقم الجوال (يبدأ بـ 05)</label>
+              <label for="mobileNumber">رقم الجوال (يبدأ بـ 05) <span class="required-star">*</span></label>
               <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" >
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 رقم الجوال مطلوب ويجب أن يبدأ بـ 05 ويتبعه 8 أرقام
@@ -105,7 +105,7 @@
             </div>
             
             <div class="form-group">
-              <label for="email">البريد الإلكتروني</label>
+              <label for="email">البريد الإلكتروني <span class="required-star">*</span></label>
               <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" >
               <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
                 بريد إلكتروني صحيح مطلوب
@@ -115,38 +115,38 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="nationalAddress">العنوان الوطني</label>
+              <label for="nationalAddress">العنوان الوطني <span class="required-star">*</span></label>
               <input type="text" id="nationalAddress" formControlName="nationalAddress" class="form-control" placeholder="العنوان الوطني">
               <div *ngIf="employeeForm.controls.nationalAddress.touched && employeeForm.controls.nationalAddress.invalid" class="error-message">
                 العنوان الوطني مطلوب
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="district">الحي</label>
+            <!-- <div class="form-group">
+              <label for="district">الحي <span class="required-star">*</span></label>
               <input type="text" id="district" formControlName="district" class="form-control" placeholder="اسم الحي">
               <div *ngIf="employeeForm.controls.district.touched && employeeForm.controls.district.invalid" class="error-message">
                 الحي مطلوب
               </div>
-            </div>
+            </div> -->
           </div>
           
           <div class="form-row">
             <div class="form-group">
-              <label for="currentResidence">العنوان الحالي</label>
+              <label for="currentResidence">العنوان الحالي <span class="required-star">*</span></label>
               <input type="text" id="currentResidence" formControlName="currentResidence" class="form-control" placeholder="العنوان الحالي">
               <div *ngIf="employeeForm.controls.currentResidence.touched && employeeForm.controls.currentResidence.invalid" class="error-message">
                 العنوان الحالي مطلوب
               </div>
             </div>
             
-            <div class="form-group">
-              <label for="city">المدينة</label>
+            <!-- <div class="form-group">
+              <label for="city">المدينة <span class="required-star">*</span></label>
               <input type="text" id="city" formControlName="city" class="form-control" placeholder="المدينة">
               <div *ngIf="employeeForm.controls.city.touched && employeeForm.controls.city.invalid" class="error-message">
                 المدينة مطلوبة
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -165,9 +165,9 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="maritalStatus">الحالة الاجتماعية</label>
+              <label for="maritalStatus">الحالة الاجتماعية <span class="required-star">*</span></label>
               <select id="maritalStatus" formControlName="maritalStatus" class="form-control">
-                <option value="">اختر الحالة الاجتماعية</option>
+                <option value="">اختر الحالة الاجتماعية <span class="required-star">*</span></option>
                 <option *ngFor="let option of maritalStatusOptions" [value]="option">{{option}}</option>
               </select>
               <div *ngIf="employeeForm.controls.maritalStatus.touched && employeeForm.controls.maritalStatus.invalid" class="error-message">
@@ -176,7 +176,7 @@
             </div>
             
             <div class="form-group">
-              <label for="spouseName">اسم الزوج/الزوجة (للمتزوجين فقط)</label>
+              <label for="spouseName">اسم الزوج/الزوجة (للمتزوجين فقط) </label>
               <input type="text" id="spouseName" formControlName="spouseName" class="form-control" placeholder="اسم الزوج/الزوجة">
             </div>
           </div>
@@ -203,7 +203,7 @@
             </div>
             
             <div class="form-group">
-              <label for="hasDependents">هل يوجد معالون؟</label>
+              <label for="hasDependents">هل يوجد معالون؟ <span class="required-star">*</span></label>
               <select id="hasDependents" formControlName="hasDependents" class="form-control">
                 <option value="">اختر الإجابة</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -218,7 +218,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="numberOfChildren">عدد الأبناء</label>
+              <label for="numberOfChildren">عدد الأبناء <span class="required-star">*</span></label>
               <input type="text" id="numberOfChildren" formControlName="numberOfChildren" class="form-control" min="0">
               <div *ngIf="employeeForm.controls.numberOfChildren.touched && employeeForm.controls.numberOfChildren.invalid" class="error-message">
                 عدد الأبناء مطلوب
@@ -226,7 +226,7 @@
             </div>
             
             <div class="form-group">
-              <label for="fromMartyrsFamilies">من أسر الشهداء</label>
+              <label for="fromMartyrsFamilies">من أسر الشهداء <span class="required-star">*</span></label>
               <select id="fromMartyrsFamilies" formControlName="fromMartyrsFamilies" class="form-control">
                 <option value="">اختر الإجابة</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -239,12 +239,12 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="numberOfDependents">عدد المعالين</label>
+              <label for="numberOfDependents">عدد المعالين </label>
               <input type="text" id="numberOfDependents" formControlName="numberOfDependents" class="form-control" min="0">
             </div>
             
             <div class="form-group">
-              <label for="personOfDetermination">من ذوي الهمم</label>
+              <label for="personOfDetermination">من ذوي الهمم <span class="required-star">*</span></label>
               <select id="personOfDetermination" formControlName="personOfDetermination" class="form-control">
                 <option value="">اختر الإجابة</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -278,27 +278,46 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="fatherName">اسم الأب</label>
+              <label for="fatherName">اسم الأب <span class="required-star">*</span></label>
               <input type="text" id="fatherName" formControlName="fatherName" class="form-control" placeholder="اسم الأب">
               <div *ngIf="employeeForm.controls.fatherName.touched && employeeForm.controls.fatherName.invalid" class="error-message">
                 اسم الأب مطلوب
               </div>
             </div>
-            
+
             <div class="form-group">
               <label for="fatherMobileNumber">جوال الأب</label>
               <input type="text" id="fatherMobileNumber" formControlName="fatherMobileNumber" class="form-control" placeholder="05XXXXXXXX">
             </div>
+            
+            
           </div>
           
+
           <div class="form-row">
             <div class="form-group">
-              <label for="fatherResidence">مكان إقامة الأب</label>
+              <label for="fatherBirthDate">تاريخ ميلاد الاب </label>
+              <input type="date" id="fatherBirthDate" formControlName="fatherBirthDate" class="form-control" placeholder="تاريخ ميلاد الاب">
+            
+            </div>
+            
+            <div class="form-group">
+              <label for="motherBirthDate">تاريخ ميلاد الام </label>
+              <input type="date" id="motherBirthDate" formControlName="motherBirthDate" class="form-control" placeholder="تاريخ ميلاد الام">
+            
+            </div>
+          </div>
+
+
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fatherResidence">سكن الأب</label>
               <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="مكان إقامة الأب">
             </div>
             
             <div class="form-group">
-              <label for="motherName">اسم الأم</label>
+              <label for="motherName">اسم الأم <span class="required-star">*</span></label>
               <input type="text" id="motherName" formControlName="motherName" class="form-control" placeholder="اسم الأم">
               <div *ngIf="employeeForm.controls.motherName.touched && employeeForm.controls.motherName.invalid" class="error-message">
                 اسم الأم مطلوب
@@ -313,7 +332,7 @@
             </div>
             
             <div class="form-group">
-              <label for="motherResidence">مكان إقامة الأم</label>
+              <label for="motherResidence">سكن الأم</label>
               <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="مكان إقامة الأم">
             </div>
           </div>
@@ -322,7 +341,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="emergencyContactName">اسم شخص الطوارئ</label>
+              <label for="emergencyContactName">اسم شخص الطوارئ <span class="required-star">*</span></label>
               <input type="text" id="emergencyContactName" formControlName="emergencyContactName" class="form-control" placeholder="اسم شخص الطوارئ">
               <div *ngIf="employeeForm.controls.emergencyContactName.touched && employeeForm.controls.emergencyContactName.invalid" class="error-message">
                 اسم شخص الطوارئ مطلوب
@@ -330,7 +349,7 @@
             </div>
             
             <div class="form-group">
-              <label for="emergencyContactNumber">رقم شخص الطوارئ</label>
+              <label for="emergencyContactNumber">رقم شخص الطوارئ <span class="required-star">*</span></label>
               <input type="text" id="emergencyContactNumber" formControlName="emergencyContactNumber" class="form-control" placeholder="05XXXXXXXX">
               <div *ngIf="employeeForm.controls.emergencyContactNumber.touched && employeeForm.controls.emergencyContactNumber.invalid" class="error-message">
                 رقم شخص الطوارئ مطلوب
@@ -340,7 +359,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="relationshipToEmergencyContact">صلة القرابة</label>
+              <label for="relationshipToEmergencyContact">صلة القرابة <span class="required-star">*</span></label>
               <input type="text" id="relationshipToEmergencyContact" formControlName="relationshipToEmergencyContact" class="form-control" placeholder="مثال: والد، أخ">
               <div *ngIf="employeeForm.controls.relationshipToEmergencyContact.touched && employeeForm.controls.relationshipToEmergencyContact.invalid" class="error-message">
                 صلة القرابة مطلوبة
@@ -348,7 +367,7 @@
             </div>
             
             <div class="form-group">
-              <label for="worksAtSameOrganization">هل يعمل بنفس المنظمة؟</label>
+              <label for="worksAtSameOrganization">هل يعمل بنفس المنظمة؟ <span class="required-star">*</span></label>
               <select id="worksAtSameOrganization" formControlName="worksAtSameOrganization" class="form-control">
                 <option value="">اختر الإجابة</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -375,7 +394,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="employeeCategory">فئة الموظف</label>
+              <label for="employeeCategory">فئة الموظف <span class="required-star">*</span></label>
               <select id="employeeCategory" formControlName="employeeCategory" class="form-control">
                 <option value="">اختر الفئة</option>
                 <option *ngFor="let option of employeeCategoryOptions" [value]="option">{{option}}</option>
@@ -386,7 +405,7 @@
             </div>
             
             <div class="form-group">
-              <label for="employeeId">الرقم الوظيفي</label>
+              <label for="employeeId">الرقم الوظيفي <span class="required-star">*</span></label>
               <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="الرقم الوظيفي" [(ngModel)]="jobNumber" [readonly]="true">
               <div *ngIf="employeeForm.controls.employeeId.touched && employeeForm.controls.employeeId.invalid" class="error-message">
                 الرقم الوظيفي مطلوب
@@ -396,7 +415,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="currentWorkNature">طبيعة العمل الحالي</label>
+              <label for="currentWorkNature">طبيعة العمل الحالي <span class="required-star">*</span></label>
               <input type="text" id="currentWorkNature" formControlName="currentWorkNature" class="form-control" placeholder="طبيعة العمل الحالي">
               <div *ngIf="employeeForm.controls.currentWorkNature.touched && employeeForm.controls.currentWorkNature.invalid" class="error-message">
                 طبيعة العمل الحالي مطلوبة
@@ -404,7 +423,7 @@
             </div>
             
             <div class="form-group">
-              <label for="jobTitle">المسمى الوظيفي</label>
+              <label for="jobTitle">المسمى الوظيفي <span class="required-star">*</span></label>
               <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="المسمى الوظيفي" [(ngModel)]="allData.jobTitle" >
               <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
                 المسمى الوظيفي مطلوب
@@ -414,7 +433,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="gradeLevel">الدرجة والمستوى</label>
+              <label for="gradeLevel">الدرجة والمستوى <span class="required-star">*</span></label>
               <input type="text" id="gradeLevel" formControlName="gradeLevel" class="form-control" placeholder="مثال: درجة 5 - مستوى 3">
               <div *ngIf="employeeForm.controls.gradeLevel.touched && employeeForm.controls.gradeLevel.invalid" class="error-message">
                 الدرجة والمستوى مطلوبان
@@ -422,7 +441,7 @@
             </div>
             
             <div class="form-group">
-              <label for="natureWorkTitle">المسمى لطبيعة العمل</label>
+              <label for="natureWorkTitle">المسمى لطبيعة العمل <span class="required-star">*</span></label>
               <input type="text" id="natureWorkTitle" formControlName="natureWorkTitle" class="form-control" placeholder="المسمى الفعلي للعمل">
               <div *ngIf="employeeForm.controls.natureWorkTitle.touched && employeeForm.controls.natureWorkTitle.invalid" class="error-message">
                 المسمى لطبيعة العمل مطلوب
@@ -434,7 +453,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="organization">الجهة</label>
+              <label for="organization">الجهة <span class="required-star">*</span></label>
               <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="اسم الجهة" [(ngModel)]="allData.placeofwork" >
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 الجهة مطلوبة
@@ -442,7 +461,7 @@
             </div>
             
             <div class="form-group">
-              <label for="dateOfAppointment">تاريخ التعيين</label>
+              <label for="dateOfAppointment">تاريخ التعيين <span class="required-star">*</span></label>
               <input type="date" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
               <div *ngIf="employeeForm.controls.dateOfAppointment.touched && employeeForm.controls.dateOfAppointment.invalid" class="error-message">
                 تاريخ التعيين مطلوب
@@ -452,7 +471,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="department">القسم</label>
+              <label for="department">القسم <span class="required-star">*</span></label>
               <input type="text" id="department" formControlName="department" class="form-control" placeholder="اسم القسم">
               <div *ngIf="employeeForm.controls.department.touched && employeeForm.controls.department.invalid" class="error-message">
                 القسم مطلوب
@@ -460,7 +479,7 @@
             </div>
             
             <div class="form-group">
-              <label for="administration">الإدارة</label>
+              <label for="administration">الإدارة <span class="required-star">*</span></label>
               <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="اسم الإدارة" [(ngModel)]="allData.empdepname" >
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 الإدارة مطلوبة
@@ -470,7 +489,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="employmentStatus">الوضع الوظيفي</label>
+              <label for="employmentStatus">الوضع الوظيفي <span class="required-star">*</span></label>
               <select id="employmentStatus" formControlName="employmentStatus" class="form-control">
                 <option value="">اختر الوضع</option>
                 <option *ngFor="let option of employmentStatusOptions" [value]="option">{{option}}</option>
@@ -555,7 +574,7 @@
             </div>
             
             <div class="form-group">
-              <label for="scholarshipUniversity">الجامعة</label>
+              <label for="scholarshipUniversity">المؤسسة التعليمية</label>
               <input type="text" id="scholarshipUniversity" formControlName="scholarshipUniversity" class="form-control" placeholder="الجامعة">
             </div>
           </div>
@@ -641,7 +660,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="educationalQualification">المؤهل العلمي</label>
+              <label for="educationalQualification">المؤهل العلمي <span class="required-star">*</span></label>
               <input type="text" id="educationalQualification" formControlName="educationalQualification" class="form-control" placeholder="مثال: بكالوريوس">
               <div *ngIf="employeeForm.controls.educationalQualification.touched && employeeForm.controls.educationalQualification.invalid" class="error-message">
                 المؤهل العلمي مطلوب
@@ -649,7 +668,7 @@
             </div>
             
             <div class="form-group">
-              <label for="typeOfQualification">نوع المؤهل</label>
+              <label for="typeOfQualification">نوع المؤهل <span class="required-star">*</span></label>
               <select id="typeOfQualification" formControlName="typeOfQualification" class="form-control">
                 <option value="">اختر النوع</option>
                 <option *ngFor="let option of qualificationTypeOptions" [value]="option">{{option}}</option>
@@ -662,7 +681,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="specificSpecialization">التخصص الدقيق</label>
+              <label for="specificSpecialization">التخصص الدقيق <span class="required-star">*</span></label>
               <input type="text" id="specificSpecialization" formControlName="specificSpecialization" class="form-control" placeholder="التخصص الدقيق">
               <div *ngIf="employeeForm.controls.specificSpecialization.touched && employeeForm.controls.specificSpecialization.invalid" class="error-message">
                 التخصص الدقيق مطلوب
@@ -670,7 +689,7 @@
             </div>
             
             <div class="form-group">
-              <label for="generalSpecialization">التخصص العام</label>
+              <label for="generalSpecialization">التخصص العام <span class="required-star">*</span></label>
               <input type="text" id="generalSpecialization" formControlName="generalSpecialization" class="form-control" placeholder="التخصص العام">
               <div *ngIf="employeeForm.controls.generalSpecialization.touched && employeeForm.controls.generalSpecialization.invalid" class="error-message">
                 التخصص العام مطلوب
@@ -682,7 +701,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="studySystem">نظام الدراسة</label>
+              <label for="studySystem">نظام الدراسة <span class="required-star">*</span></label>
               <select id="studySystem" formControlName="studySystem" class="form-control">
                 <option value="">اختر النظام</option>
                 <option *ngFor="let option of studySystemOptions" [value]="option">{{option}}</option>
@@ -693,7 +712,7 @@
             </div>
             
             <div class="form-group">
-              <label for="graduationYear">سنة التخرج</label>
+              <label for="graduationYear">سنة التخرج <span class="required-star">*</span></label>
               <input type="text" id="graduationYear" formControlName="graduationYear" class="form-control" placeholder="سنة التخرج">
               <div *ngIf="employeeForm.controls.graduationYear.touched && employeeForm.controls.graduationYear.invalid" class="error-message">
                 سنة التخرج مطلوبة
@@ -703,7 +722,7 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="graduationInstitution">جهة التخرج</label>
+              <label for="graduationInstitution">جهة التخرج <span class="required-star">*</span></label>
               <input type="text" id="graduationInstitution" formControlName="graduationInstitution" class="form-control" placeholder="الجامعة أو المعهد">
               <div *ngIf="employeeForm.controls.graduationInstitution.touched && employeeForm.controls.graduationInstitution.invalid" class="error-message">
                 جهة التخرج مطلوبة
@@ -787,7 +806,7 @@
             </div>
           </div>
           
-          <div class="form-row">
+          <!-- <div class="form-row">
             <div class="form-group">
               <label for="courseStartDate">بداية الدورة</label>
               <input type="date" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
@@ -797,17 +816,17 @@
               <label for="courseEndDate">نهاية الدورة</label>
               <input type="date" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
-          </div>
+          </div> -->
           
           <div class="form-row">
             <div class="form-group">
-              <label for="courseDuration">مدة الدورة</label>
-              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="مدة الدورة">
+              <label for="courseDuration">نوع الدورة</label>
+              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="نوع الدورة">
             </div>
             
             <div class="form-group">
-              <label for="certificateNumber">رقم الشهادة</label>
-              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="رقم الشهادة">
+              <label for="certificateNumber">مجال الدورة</label>
+              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="مجال الدورة">
             </div>
           </div>
         </div>
