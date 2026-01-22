@@ -63,12 +63,14 @@ export class APIService {
 
   // 1. المتغير اللي هتخزن فيه الاوبجيكت
   private myData = new BehaviorSubject<any>({});
+  private jobNum = new BehaviorSubject<any>('');
+
   
   // 2. ده اللي هتستخدمه في الكومبوننت
   public myData$ = this.myData.asObservable();
+  public jobNum$ = this.jobNum.asObservable();
 
 
-  // 3. دالة تخزين الاوبجيكت
 
   constructor(private _httpClient:HttpClient) { 
 
@@ -87,16 +89,21 @@ export class APIService {
 
   }
   
-  
+    // 3. دالة تخزين الاوبجيكت
+
   setData(obj: any) {
     this.myData.next(obj);
   }
-
+  setData2(obj: any) {
+    this.jobNum.next(obj);
+  }
   // 4. دالة جلب الداتا
   getData() {
     return this.myData.getValue();
   }
-
+  getData2() {
+    return this.jobNum.getValue();
+  }
   
 
 

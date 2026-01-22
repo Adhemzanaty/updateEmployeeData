@@ -44,7 +44,7 @@ export class LoginComponent {
         this._APIService.CheckUserNationalId(x.value.nationalId).subscribe( (x) => {
 
 
-            console.log(x);
+            // console.log(x);
               this.isCodeSent = x.isCodeSent;
               this.loginText = x.message;
               this._APIService.hide();
@@ -63,11 +63,12 @@ export class LoginComponent {
         this._APIService.login(data).subscribe( (x) => {
 
 
-            console.log(x);
+            // console.log(x);
             if(x.success){
 
               // alert('success');
               this._APIService.setData(x);
+              this._APIService.setData2(data.nationalId);
               this._APIService.token.next(x.token);
               this._Router.navigate(['/home']);
               this._APIService.checkLogin.next(true);

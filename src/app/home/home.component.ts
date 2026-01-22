@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit{
 
 
   allData:any;
+  jobNumber:any;
+
   // Options for dropdowns
   maritalStatusOptions = ['أعزب', 'متزوج', 'مطلق', 'أرمل'];
   genderOptions = ['ذكر', 'أنثى'];
@@ -38,11 +40,20 @@ export class HomeComponent implements OnInit{
 
       // جلب الداتا
       this.getObject();
-  }
+      this.getObject2();
+      }
+  
   getObject() {
     this.allData = this._APIService.getData();
-    console.log(this.allData); // هتظهر الاوبجيكت
+    // console.log(this.allData);
+     // هتظهر الاوبجيكت
     return this.allData;
+  }
+  getObject2() {
+    this.jobNumber = this._APIService.getData2();
+    // console.log(this.jobNumber);
+     // هتظهر الاوبجيكت
+    return this.jobNumber;
   }
 
       // القسم الأول: البيانات الأساسية والتعريفية (13 حقل)
@@ -72,9 +83,9 @@ export class HomeComponent implements OnInit{
         spouseStatus: new FormControl(''),
         // الحقول 19-24: بيانات الأبناء والمعالين
         hasDependents: new FormControl('' , [Validators.required ]),
-        numberOfChildren: new FormControl(0, [Validators.required, Validators.min(0)]),
+        numberOfChildren: new FormControl('', [Validators.required, Validators.min(0)]),
         fromMartyrsFamilies: new FormControl('' , [Validators.required ]),
-        numberOfDependents: new FormControl(0, [Validators.min(0)]),
+        numberOfDependents: new FormControl('', [Validators.min(0)]),
         personOfDetermination: new FormControl('' , [Validators.required ]),
         degreeOfKinship: new FormControl(''),
 
@@ -171,7 +182,7 @@ export class HomeComponent implements OnInit{
   onSubmit(x:any){
 
 
-  console.log(x.value);
+  // console.log(x.value);
 
   this._APIService.show();
 
@@ -179,7 +190,7 @@ export class HomeComponent implements OnInit{
 
 
     if(x.isSuccess){
-      console.log(x);
+      // console.log(x);
       alert('تم تسجيل بياناتك بنجاح شكرا لك');
       this._Router.navigate(['/login']);
       this._APIService.hide();
