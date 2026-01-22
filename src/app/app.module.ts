@@ -10,6 +10,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { HomeEnComponent } from './home-en/home-en.component';
 
 
 
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     HomeComponent,
     LoginComponent,
+    HomeEnComponent,
 
   ],
   imports: [

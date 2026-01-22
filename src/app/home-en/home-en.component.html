@@ -1,0 +1,853 @@
+
+<div class="language-switcher">
+    <button class="lang-btn " data-lang="ar" routerLink="/home" >العربية</button>
+    <button class="lang-btn active" data-lang="en" routerLink="/homeEn">English</button>
+  </div>
+
+<div class="form-container">
+    <h1>Employee Data Form Completion Guide</h1>
+    
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)">
+      
+      <!-- Section 1: Basic and Identification Data -->
+      <div class="form-section">
+        <h2>Section 1: Basic and Identification Data</h2>
+        <div class="section-description">
+          <p>Basic personal information of the employee</p>
+          <p>In this section, we identify the most important fields that must be filled accurately to ensure reliable and complete records for each employee</p>
+          <p class="field-count">13 basic fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 1 to 7: Basic Personal Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname" [readonly]="true">
+              <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
+                Full name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="nationalId">National ID Number</label>
+              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId" [readonly]="true">
+              <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
+                National ID number is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dateOfBirth">Date of Birth (mm/dd/yyyy)</label>
+              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" [readonly]="true">
+              <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
+                Date of birth is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="nationality">Nationality</label>
+              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" [readonly]="true">
+              <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
+                Nationality is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender" [readonly]="true">
+              <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
+                Gender is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="placeOfBirth">Place of Birth</label>
+              <input type="text" id="placeOfBirth" formControlName="placeOfBirth" class="form-control" placeholder="Place of Birth">
+              <div *ngIf="employeeForm.controls.placeOfBirth.touched && employeeForm.controls.placeOfBirth.invalid" class="error-message">
+                Place of birth is required
+              </div>
+            </div>
+          </div>
+          
+          <h3>Fields 8 to 13: Contact and Residence Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="mobileNumber">Mobile Number (Starts with 05)</label>
+              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" [readonly]="true">
+              <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
+                Mobile number is required and must start with 05 followed by 8 digits
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" [readonly]="true">
+              <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
+                Valid email address is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nationalAddress">National Address</label>
+              <input type="text" id="nationalAddress" formControlName="nationalAddress" class="form-control" placeholder="National Address">
+              <div *ngIf="employeeForm.controls.nationalAddress.touched && employeeForm.controls.nationalAddress.invalid" class="error-message">
+                National address is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="district">District</label>
+              <input type="text" id="district" formControlName="district" class="form-control" placeholder="District Name">
+              <div *ngIf="employeeForm.controls.district.touched && employeeForm.controls.district.invalid" class="error-message">
+                District is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="currentResidence">Current Address</label>
+              <input type="text" id="currentResidence" formControlName="currentResidence" class="form-control" placeholder="Current Address">
+              <div *ngIf="employeeForm.controls.currentResidence.touched && employeeForm.controls.currentResidence.invalid" class="error-message">
+                Current address is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" formControlName="city" class="form-control" placeholder="City">
+              <div *ngIf="employeeForm.controls.city.touched && employeeForm.controls.city.invalid" class="error-message">
+                City is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 2: Marital and Family Status -->
+      <div class="form-section">
+        <h2>Section 2: Marital and Family Status</h2>
+        <div class="section-description">
+          <p>Employee's social and family information</p>
+          <p>In this section, we identify the employee's marital status, family members, dependents, and important family information</p>
+          <p class="field-count">11 fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 14 to 18: Spouse and Marital Status Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="maritalStatus">Marital Status</label>
+              <select id="maritalStatus" formControlName="maritalStatus" class="form-control">
+                <option value="">Select Marital Status</option>
+                <option *ngFor="let option of maritalStatusOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.maritalStatus.touched && employeeForm.controls.maritalStatus.invalid" class="error-message">
+                Marital status is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="spouseName">Spouse Name (For Married Only)</label>
+              <input type="text" id="spouseName" formControlName="spouseName" class="form-control" placeholder="Spouse Name">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="spouseMobileNumber">Spouse Mobile Number</label>
+              <input type="text" id="spouseMobileNumber" formControlName="spouseMobileNumber" class="form-control" placeholder="05XXXXXXXX">
+            </div>
+            
+            <div class="form-group">
+              <label for="spouseDateOfBirth">Spouse Date of Birth</label>
+              <input type="date" id="spouseDateOfBirth" formControlName="spouseDateOfBirth" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="spouseStatus">Spouse Status</label>
+              <select id="spouseStatus" formControlName="spouseStatus" class="form-control">
+                <option value="">Select Status</option>
+                <option *ngFor="let option of spouseStatusOptions" [value]="option">{{option}}</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="hasDependents">Do You Have Dependents?</label>
+              <select id="hasDependents" formControlName="hasDependents" class="form-control">
+                <option value="">Select Answer</option>
+                <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.hasDependents.touched && employeeForm.controls.hasDependents.invalid" class="error-message">
+                This field is required
+              </div>
+            </div>
+          </div>
+          
+          <h3>Fields 19 to 24: Children and Dependents Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="numberOfChildren">Number of Children</label>
+              <input type="text" id="numberOfChildren" formControlName="numberOfChildren" class="form-control" min="0">
+              <div *ngIf="employeeForm.controls.numberOfChildren.touched && employeeForm.controls.numberOfChildren.invalid" class="error-message">
+                Number of children is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="fromMartyrsFamilies">From Martyrs' Families</label>
+              <select id="fromMartyrsFamilies" formControlName="fromMartyrsFamilies" class="form-control">
+                <option value="">Select Answer</option>
+                <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.fromMartyrsFamilies.touched && employeeForm.controls.fromMartyrsFamilies.invalid" class="error-message">
+                This field is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="numberOfDependents">Number of Dependents</label>
+              <input type="text" id="numberOfDependents" formControlName="numberOfDependents" class="form-control" min="0">
+            </div>
+            
+            <div class="form-group">
+              <label for="personOfDetermination">Person of Determination</label>
+              <select id="personOfDetermination" formControlName="personOfDetermination" class="form-control">
+                <option value="">Select Answer</option>
+                <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.personOfDetermination.touched && employeeForm.controls.personOfDetermination.invalid" class="error-message">
+                This field is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="degreeOfKinship">Degree of Kinship (If from Martyrs' Families)</label>
+              <input type="text" id="degreeOfKinship" formControlName="degreeOfKinship" class="form-control" placeholder="Example: Son of Martyr">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 3: Parents and Emergency Data -->
+      <div class="form-section">
+        <h2>Section 3: Parents and Emergency Data</h2>
+        <div class="section-description">
+          <p>Contact and identification information for parents and emergency contact</p>
+          <p>In this section, we record parents' data and emergency contact information for communication in necessary cases while ensuring accuracy of recorded information</p>
+          <p class="field-count">12 basic fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 25 to 30: Father and Mother Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fatherName">Father's Name</label>
+              <input type="text" id="fatherName" formControlName="fatherName" class="form-control" placeholder="Father's Name">
+              <div *ngIf="employeeForm.controls.fatherName.touched && employeeForm.controls.fatherName.invalid" class="error-message">
+                Father's name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="fatherMobileNumber">Father's Mobile Number</label>
+              <input type="text" id="fatherMobileNumber" formControlName="fatherMobileNumber" class="form-control" placeholder="05XXXXXXXX">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fatherResidence">Father's Residence</label>
+              <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence">
+            </div>
+            
+            <div class="form-group">
+              <label for="motherName">Mother's Name</label>
+              <input type="text" id="motherName" formControlName="motherName" class="form-control" placeholder="Mother's Name">
+              <div *ngIf="employeeForm.controls.motherName.touched && employeeForm.controls.motherName.invalid" class="error-message">
+                Mother's name is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="motherMobileNumber">Mother's Mobile Number</label>
+              <input type="text" id="motherMobileNumber" formControlName="motherMobileNumber" class="form-control" placeholder="05XXXXXXXX">
+            </div>
+            
+            <div class="form-group">
+              <label for="motherResidence">Mother's Residence</label>
+              <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="Mother's Residence">
+            </div>
+          </div>
+          
+          <h3>Fields 31 to 36: Emergency Contact Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="emergencyContactName">Emergency Contact Name</label>
+              <input type="text" id="emergencyContactName" formControlName="emergencyContactName" class="form-control" placeholder="Emergency Contact Name">
+              <div *ngIf="employeeForm.controls.emergencyContactName.touched && employeeForm.controls.emergencyContactName.invalid" class="error-message">
+                Emergency contact name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="emergencyContactNumber">Emergency Contact Number</label>
+              <input type="text" id="emergencyContactNumber" formControlName="emergencyContactNumber" class="form-control" placeholder="05XXXXXXXX">
+              <div *ngIf="employeeForm.controls.emergencyContactNumber.touched && employeeForm.controls.emergencyContactNumber.invalid" class="error-message">
+                Emergency contact number is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="relationshipToEmergencyContact">Relationship</label>
+              <input type="text" id="relationshipToEmergencyContact" formControlName="relationshipToEmergencyContact" class="form-control" placeholder="Example: Father, Brother">
+              <div *ngIf="employeeForm.controls.relationshipToEmergencyContact.touched && employeeForm.controls.relationshipToEmergencyContact.invalid" class="error-message">
+                Relationship is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="worksAtSameOrganization">Works at Same Organization?</label>
+              <select id="worksAtSameOrganization" formControlName="worksAtSameOrganization" class="form-control">
+                <option value="">Select Answer</option>
+                <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.worksAtSameOrganization.touched && employeeForm.controls.worksAtSameOrganization.invalid" class="error-message">
+                This field is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 4: Basic Employment Data -->
+      <div class="form-section">
+        <h2>Section 4: Basic Employment Data</h2>
+        <div class="section-description">
+          <p>Employee's employment and administrative information</p>
+          <p>In this section, we record basic employment data and administrative information that defines the employee's position in the organizational structure</p>
+          <p class="field-count">12 basic employment fields</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 37 to 42: Basic Employment Information</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="employeeCategory">Employee Category</label>
+              <select id="employeeCategory" formControlName="employeeCategory" class="form-control">
+                <option value="">Select Category</option>
+                <option *ngFor="let option of employeeCategoryOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.employeeCategory.touched && employeeForm.controls.employeeCategory.invalid" class="error-message">
+                Employee category is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="employeeId">Employee ID</label>
+              <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="Employee ID" [(ngModel)]="jobNumber" [readonly]="true">
+              <div *ngIf="employeeForm.controls.employeeId.touched && employeeForm.controls.employeeId.invalid" class="error-message">
+                Employee ID is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="currentWorkNature">Current Work Nature</label>
+              <input type="text" id="currentWorkNature" formControlName="currentWorkNature" class="form-control" placeholder="Current Work Nature">
+              <div *ngIf="employeeForm.controls.currentWorkNature.touched && employeeForm.controls.currentWorkNature.invalid" class="error-message">
+                Current work nature is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="jobTitle">Job Title</label>
+              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.ejobTitle" [readonly]="true">
+              <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
+                Job title is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gradeLevel">Grade and Level</label>
+              <input type="text" id="gradeLevel" formControlName="gradeLevel" class="form-control" placeholder="Example: Grade 5 - Level 3">
+              <div *ngIf="employeeForm.controls.gradeLevel.touched && employeeForm.controls.gradeLevel.invalid" class="error-message">
+                Grade and level are required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="natureWorkTitle">Work Nature Title</label>
+              <input type="text" id="natureWorkTitle" formControlName="natureWorkTitle" class="form-control" placeholder="Actual Work Title">
+              <div *ngIf="employeeForm.controls.natureWorkTitle.touched && employeeForm.controls.natureWorkTitle.invalid" class="error-message">
+                Work nature title is required
+              </div>
+            </div>
+          </div>
+          
+          <h3>Fields 43 to 48: Appointment, Organization, Department, Section, Unit</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.eplaceofwork" [readonly]="true">
+              <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
+                Organization is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="dateOfAppointment">Appointment Date</label>
+              <input type="date" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
+              <div *ngIf="employeeForm.controls.dateOfAppointment.touched && employeeForm.controls.dateOfAppointment.invalid" class="error-message">
+                Appointment date is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="department">Department</label>
+              <input type="text" id="department" formControlName="department" class="form-control" placeholder="Department Name">
+              <div *ngIf="employeeForm.controls.department.touched && employeeForm.controls.department.invalid" class="error-message">
+                Department is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="administration">Administration</label>
+              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.eEempdepname" [readonly]="true">
+              <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
+                Administration is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="employmentStatus">Employment Status</label>
+              <select id="employmentStatus" formControlName="employmentStatus" class="form-control">
+                <option value="">Select Status</option>
+                <option *ngFor="let option of employmentStatusOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.employmentStatus.touched && employeeForm.controls.employmentStatus.invalid" class="error-message">
+                Employment status is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="unit">Unit</label>
+              <input type="text" id="unit" formControlName="unit" class="form-control" placeholder="Unit Name">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 5: Data of Employees Assigned from Another Entity -->
+      <div class="form-section">
+        <h2>Section 5: Data of Employees Assigned from Another Entity</h2>
+        <div class="section-description">
+          <p>Information of employees assigned from their original entities to work with us</p>
+          <p>In this section, we record data of employees temporarily assigned from their original entities to work in our entity</p>
+          <p class="field-count">4 fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="assignmentDepartment">Assignment Department</label>
+              <input type="text" id="assignmentDepartment" formControlName="assignmentDepartment" class="form-control" placeholder="Assignment Department">
+            </div>
+            
+            <div class="form-group">
+              <label for="assignmentOrganization">Assignment Organization</label>
+              <input type="text" id="assignmentOrganization" formControlName="assignmentOrganization" class="form-control" placeholder="Original Assignment Entity">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="assignmentStartDate">Assignment Start Date</label>
+              <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group">
+              <label for="assignmentEndDate">Assignment End Date</label>
+              <input type="date" id="assignmentEndDate" formControlName="assignmentEndDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 6: Scholarship and Study Data -->
+      <div class="form-section">
+        <h2>Section 6: Scholarship and Study Data</h2>
+        <div class="section-description">
+          <p>Employee's overseas study scholarship information</p>
+          <p>In this section, we record details of the employee's study scholarship if they are studying abroad on scholarship</p>
+          <p class="field-count">7 fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 54 to 57: Basic Scholarship Data</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="scholarshipCountry">Scholarship Country</label>
+              <input type="text" id="scholarshipCountry" formControlName="scholarshipCountry" class="form-control" placeholder="Country">
+            </div>
+            
+            <div class="form-group">
+              <label for="scholarshipCity">Scholarship City</label>
+              <input type="text" id="scholarshipCity" formControlName="scholarshipCity" class="form-control" placeholder="City">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="scholarshipMajor">Major</label>
+              <input type="text" id="scholarshipMajor" formControlName="scholarshipMajor" class="form-control" placeholder="Major">
+            </div>
+            
+            <div class="form-group">
+              <label for="scholarshipUniversity">University</label>
+              <input type="text" id="scholarshipUniversity" formControlName="scholarshipUniversity" class="form-control" placeholder="University">
+            </div>
+          </div>
+          
+          <h3>Fields 58 to 60: Academic Degree and Scholarship Dates</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="scholarshipStartDate">Scholarship Start Date</label>
+              <input type="date" id="scholarshipStartDate" formControlName="scholarshipStartDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group">
+              <label for="degree">Academic Degree</label>
+              <input type="text" id="degree" formControlName="degree" class="form-control" placeholder="Example: Master's">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="scholarshipEndDate">Scholarship End Date</label>
+              <input type="date" id="scholarshipEndDate" formControlName="scholarshipEndDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group full-width">
+              <label for="notes">Notes</label>
+              <textarea id="notes" formControlName="notes" class="form-control" rows="3" placeholder="Additional Notes"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 7: Leave Data -->
+      <div class="form-section">
+        <h2>Section 7: Leave Data</h2>
+        <div class="section-description">
+          <p>Recording and documenting employee's official leaves</p>
+          <p>In this section, we record details of all types of leaves with documentation of duration and percentages to ensure accurate records</p>
+          <p class="field-count">4 basic fields for recording</p>
+        </div>
+        
+        <div class="section-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="leaveStartDate">Leave Start Date</label>
+              <input type="date" id="leaveStartDate" formControlName="leaveStartDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group">
+              <label for="leaveEndDate">Leave End Date</label>
+              <input type="date" id="leaveEndDate" formControlName="leaveEndDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="leaveType">Leave Type</label>
+              <select id="leaveType" formControlName="leaveType" class="form-control">
+                <option value="">Select Type</option>
+                <option *ngFor="let option of leaveTypeOptions" [value]="option">{{option}}</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="reasonForLeave">Leave Reason</label>
+              <input type="text" id="reasonForLeave" formControlName="reasonForLeave" class="form-control" placeholder="Leave Reason">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 8: Educational Qualifications Data -->
+      <div class="form-section">
+        <h2>Section 8: Educational Qualifications Data</h2>
+        <div class="section-description">
+          <p>Employee's educational qualifications</p>
+          <p>In this section, we record the highest educational qualifications obtained by the employee with details of major and educational institution</p>
+          <p class="field-count">7 basic educational fields</p>
+        </div>
+        
+        <div class="section-content">
+          <h3>Fields 65 to 68: Qualifications and Majors</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="educationalQualification">Educational Qualification</label>
+              <input type="text" id="educationalQualification" formControlName="educationalQualification" class="form-control" placeholder="Example: Bachelor's">
+              <div *ngIf="employeeForm.controls.educationalQualification.touched && employeeForm.controls.educationalQualification.invalid" class="error-message">
+                Educational qualification is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="typeOfQualification">Qualification Type</label>
+              <select id="typeOfQualification" formControlName="typeOfQualification" class="form-control">
+                <option value="">Select Type</option>
+                <option *ngFor="let option of qualificationTypeOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.typeOfQualification.touched && employeeForm.controls.typeOfQualification.invalid" class="error-message">
+                Qualification type is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="specificSpecialization">Specific Specialization</label>
+              <input type="text" id="specificSpecialization" formControlName="specificSpecialization" class="form-control" placeholder="Specific Specialization">
+              <div *ngIf="employeeForm.controls.specificSpecialization.touched && employeeForm.controls.specificSpecialization.invalid" class="error-message">
+                Specific specialization is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="generalSpecialization">General Specialization</label>
+              <input type="text" id="generalSpecialization" formControlName="generalSpecialization" class="form-control" placeholder="General Specialization">
+              <div *ngIf="employeeForm.controls.generalSpecialization.touched && employeeForm.controls.generalSpecialization.invalid" class="error-message">
+                General specialization is required
+              </div>
+            </div>
+          </div>
+          
+          <h3>Fields 69 to 71: Graduation Details and Study System</h3>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="studySystem">Study System</label>
+              <select id="studySystem" formControlName="studySystem" class="form-control">
+                <option value="">Select System</option>
+                <option *ngFor="let option of studySystemOptions" [value]="option">{{option}}</option>
+              </select>
+              <div *ngIf="employeeForm.controls.studySystem.touched && employeeForm.controls.studySystem.invalid" class="error-message">
+                Study system is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="graduationYear">Graduation Year</label>
+              <input type="text" id="graduationYear" formControlName="graduationYear" class="form-control" placeholder="Graduation Year">
+              <div *ngIf="employeeForm.controls.graduationYear.touched && employeeForm.controls.graduationYear.invalid" class="error-message">
+                Graduation year is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="graduationInstitution">Graduation Institution</label>
+              <input type="text" id="graduationInstitution" formControlName="graduationInstitution" class="form-control" placeholder="University or Institute">
+              <div *ngIf="employeeForm.controls.graduationInstitution.touched && employeeForm.controls.graduationInstitution.invalid" class="error-message">
+                Graduation institution is required
+              </div>
+            </div>
+            
+            <div class="form-group full-width">
+              <label for="additionalNotes">Additional Notes</label>
+              <textarea id="additionalNotes" formControlName="additionalNotes" class="form-control" rows="2" placeholder="Additional Notes"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 9: Health Classification Data -->
+      <div class="form-section">
+        <h2>Section 9: Health Classification Data (For Healthcare Professionals Only)</h2>
+        <div class="section-description">
+          <p>For healthcare professionals only</p>
+          <p>In this section, we record health classification data for healthcare professionals, as approved by the Saudi Commission for Health Specialties</p>
+          <p class="field-count">5 fields specific to healthcare professionals</p>
+        </div>
+        
+        <div class="section-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="classifiedHealthSpecialty">Classified Health Specialty</label>
+              <input type="text" id="classifiedHealthSpecialty" formControlName="classifiedHealthSpecialty" class="form-control" placeholder="Example: Family Medicine">
+            </div>
+            
+            <div class="form-group">
+              <label for="healthClassification">Health Classification</label>
+              <input type="text" id="healthClassification" formControlName="healthClassification" class="form-control" placeholder="Example: General Practitioner">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="classificationNumber">Classification Number</label>
+              <input type="text" id="classificationNumber" formControlName="classificationNumber" class="form-control" placeholder="Classification Number">
+            </div>
+            
+            <div class="form-group">
+              <label for="classificationIssueDate">Classification Issue Date</label>
+              <input type="date" id="classificationIssueDate" formControlName="classificationIssueDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="classificationExpiryDate">Classification Expiry Date</label>
+              <input type="date" id="classificationExpiryDate" formControlName="classificationExpiryDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-note">
+            <p><strong>Note:</strong> This section is only for healthcare professionals. If the employee is not a healthcare professional, leave these fields empty.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 10: Training Courses Data -->
+      <div class="form-section">
+        <h2>Section 10: Training Courses Data</h2>
+        <div class="section-description">
+          <p>Record of courses and trainings attended by the employee</p>
+          <p>In this section, we record all training courses attended by the employee to develop their professional skills and abilities</p>
+          <p class="field-count">6 fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseName">Course Name</label>
+              <input type="text" id="courseName" formControlName="courseName" class="form-control" placeholder="Course Name">
+            </div>
+            
+            <div class="form-group">
+              <label for="courseIssuingOrganization">Course Issuing Organization</label>
+              <input type="text" id="courseIssuingOrganization" formControlName="courseIssuingOrganization" class="form-control" placeholder="Granting Organization">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseStartDate">Course Start Date</label>
+              <input type="date" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group">
+              <label for="courseEndDate">Course End Date</label>
+              <input type="date" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="courseDuration">Course Duration</label>
+              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course Duration">
+            </div>
+            
+            <div class="form-group">
+              <label for="certificateNumber">Certificate Number</label>
+              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Certificate Number">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 11: Previous Experience Data -->
+      <div class="form-section">
+        <h2>Section 11: Previous Experience Data</h2>
+        <div class="section-description">
+          <p>Employee's previous work experience</p>
+          <p>In this section, we record details of previous jobs held by the employee before joining the current workplace</p>
+          <p class="field-count">5 fields to fill</p>
+        </div>
+        
+        <div class="section-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="previousJobTitle">Previous Job Title</label>
+              <input type="text" id="previousJobTitle" formControlName="previousJobTitle" class="form-control" placeholder="Job Title">
+            </div>
+            
+            <div class="form-group">
+              <label for="previousOrganization">Previous Organization</label>
+              <input type="text" id="previousOrganization" formControlName="previousOrganization" class="form-control" placeholder="Previous Organization">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="experienceStartDate">Experience Start Date</label>
+              <input type="date" id="experienceStartDate" formControlName="experienceStartDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+            
+            <div class="form-group">
+              <label for="experienceEndDate">Experience End Date</label>
+              <input type="date" id="experienceEndDate" formControlName="experienceEndDate" class="form-control" placeholder="mm/dd/yyyy">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="yearsOfExperience">Years of Experience</label>
+              <input type="number" id="yearsOfExperience" formControlName="yearsOfExperience" class="form-control" min="0" placeholder="Number of Years">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Submit and Reset Buttons -->
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Submit Form</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Show spinner when loading -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">Loading....</p>
+  </div>

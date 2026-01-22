@@ -3,23 +3,26 @@
 	<div class="darkBg"></div>
     <div class="form-container d-flex align-items-center justify-content-center " dir="rtl">
         <form [formGroup]="loginForm" (ngSubmit)="checkLogin(loginForm)">
-            <h4 class="py-3">تحديث بيانات الموظفين</h4>
-            <h1 class="py-3">تسجيل دخول</h1>
+            <h4 class="pt-3">تحديث بيانات الموظفين</h4>
+            <h4 class="pb-3">Updating employee data</h4>
+
+            <h1 class="pt-3">تسجيل دخول</h1>
+            <h1 class="pb-3">Login</h1>
 
             <div class="w-100">
-                    <input class="form-control" type="text" placeholder="الرقم الوظيفي" formControlName="nationalId" />
+                    <input class="form-control" type="text" placeholder="الرقم الوظيفي / employee number" formControlName="nationalId" />
                     <div *ngIf="loginForm.controls.nationalId.invalid && loginForm.controls.nationalId.touched"
                         class="alert alert-danger text-start w-100" role="alert">
-                        من فضلك ادخل الرقم الوظيفي
+                        من فضلك ادخل الرقم الوظيفي / Please enter your employee number
                     </div>
             </div>
 
 
             <div *ngIf="isCodeSent" class="w-100 OTPInput">
-                    <input class="form-control" type="text" placeholder="رمز التحقق" formControlName="OTP" />
+                    <input class="form-control" type="text" placeholder="رمز التحقق / OTP" formControlName="OTP" />
                     <div *ngIf="loginForm.controls.OTP.invalid && loginForm.controls.OTP.touched"
                         class="alert alert-danger text-center w-100" role="alert">
-                        من فضلك ادخل رمز التحقق المرسل الى جوالك
+                      من فضلك ادخل رمز التحقق المرسل الى جوالك / Please enter the verification code sent to your mobile phone.
                     </div>
             </div>
 
@@ -28,7 +31,7 @@
             <!-- <input class="form-control" type="number" placeholder="National Id" /> -->
             <!-- <input class="form-control OTPInput" type="number" placeholder="OTP" /> -->
 
-            <button class="my-3" type="submit" [disabled]="loginForm.controls.nationalId.invalid">تسجيل دخول</button>
+            <button class="my-3" type="submit" [disabled]="loginForm.controls.nationalId.invalid">تسجيل دخول / Login</button>
         </form>
     </div>
 </section>
