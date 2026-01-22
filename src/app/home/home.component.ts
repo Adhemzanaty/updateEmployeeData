@@ -43,18 +43,7 @@ export class HomeComponent implements OnInit{
       this.getObject2();
       }
   
-  getObject() {
-    this.allData = this._APIService.getData();
-    // console.log(this.allData);
-     // هتظهر الاوبجيكت
-    return this.allData;
-  }
-  getObject2() {
-    this.jobNumber = this._APIService.getData2();
-    // console.log(this.jobNumber);
-     // هتظهر الاوبجيكت
-    return this.jobNumber;
-  }
+
 
       // القسم الأول: البيانات الأساسية والتعريفية (13 حقل)
       employeeForm = new FormGroup({
@@ -179,6 +168,29 @@ export class HomeComponent implements OnInit{
       })
 
 
+      getObject() {
+        this.allData = this._APIService.getData();
+        // console.log(this.allData);
+         // هتظهر الاوبجيكت
+
+         if( this.allData.gender == 'MALE' ){
+
+          this.allData.gender = 'ذكر' ;
+
+         }else if( this.allData.gender == 'FEMALE' ){
+
+          this.allData.gender = 'انثى' ;
+
+         }
+    
+        return this.allData;
+      }
+      getObject2() {
+        this.jobNumber = this._APIService.getData2();
+        // console.log(this.jobNumber);
+         // هتظهر الاوبجيكت
+        return this.jobNumber;
+      }
   onSubmit(x:any){
 
 

@@ -24,7 +24,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname" [readonly]="true">
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname" >
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 Full name is required
               </div>
@@ -32,7 +32,7 @@
             
             <div class="form-group">
               <label for="nationalId">National ID Number</label>
-              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId" [readonly]="true">
+              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId" >
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 National ID number is required
               </div>
@@ -42,7 +42,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="dateOfBirth">Date of Birth (mm/dd/yyyy)</label>
-              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" [readonly]="true">
+              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" >
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 Date of birth is required
               </div>
@@ -50,7 +50,7 @@
             
             <div class="form-group">
               <label for="nationality">Nationality</label>
-              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" [readonly]="true">
+              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" >
               <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
                 Nationality is required
               </div>
@@ -60,7 +60,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="gender">Gender</label>
-              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender" [readonly]="true">
+              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender" >
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
                 Gender is required
               </div>
@@ -80,7 +80,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="mobileNumber">Mobile Number (Starts with 05)</label>
-              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" [readonly]="true">
+              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" >
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 Mobile number is required and must start with 05 followed by 8 digits
               </div>
@@ -88,7 +88,7 @@
             
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" [readonly]="true">
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" >
               <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
                 Valid email address is required
               </div>
@@ -387,7 +387,7 @@
             
             <div class="form-group">
               <label for="jobTitle">Job Title</label>
-              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.ejobTitle" [readonly]="true">
+              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.ejobTitle" >
               <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
                 Job title is required
               </div>
@@ -417,7 +417,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="organization">Organization</label>
-              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.eplaceofwork" [readonly]="true">
+              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.eplaceofwork" >
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 Organization is required
               </div>
@@ -443,7 +443,7 @@
             
             <div class="form-group">
               <label for="administration">Administration</label>
-              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.eEempdepname" [readonly]="true">
+              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.eEempdepname" >
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 Administration is required
               </div>
@@ -575,7 +575,7 @@
         <h2>Section 7: Leave Data</h2>
         <div class="section-description">
           <p>Recording and documenting employee's official leaves</p>
-          <p>In this section, we record details of all types of leaves with documentation of duration and percentages to ensure accurate records</p>
+          <p>In this section, we record details of employee vacations exceeding 6 months.</p>
           <p class="field-count">4 basic fields for recording</p>
         </div>
         
@@ -752,7 +752,7 @@
         <h2>Section 10: Training Courses Data</h2>
         <div class="section-description">
           <p>Record of courses and trainings attended by the employee</p>
-          <p>In this section, we record all training courses attended by the employee to develop their professional skills and abilities</p>
+          <p>In this section, we record the last training course the employee completed.</p>
           <p class="field-count">6 fields to fill</p>
         </div>
         

@@ -27,7 +27,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="fullName">الاسم الكامل</label>
-              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم" [(ngModel)]="allData.empname" [readonly]="true">
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم" [(ngModel)]="allData.empname" >
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 الاسم الكامل مطلوب
               </div>
@@ -35,7 +35,7 @@
             
             <div class="form-group">
               <label for="nationalId">رقم الهوية الوطنية</label>
-              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="رقم الهوية" [(ngModel)]="allData.nationalId" [readonly]="true">
+              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="رقم الهوية" [(ngModel)]="allData.nationalId" >
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 رقم الهوية الوطنية مطلوب
               </div>
@@ -45,7 +45,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="dateOfBirth">تاريخ الميلاد (mm/dd/yyyy)</label>
-              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" [readonly]="true">
+              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" >
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 تاريخ الميلاد مطلوب
               </div>
@@ -53,7 +53,7 @@
             
             <div class="form-group">
               <label for="nationality">الجنسية</label>
-              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="الجنسية" [(ngModel)]="allData.nationality" [readonly]="true">
+              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="الجنسية" [(ngModel)]="allData.nationality" >
               <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
                 الجنسية مطلوبة
               </div>
@@ -65,9 +65,9 @@
 
             <div class="form-group">
               <label for="gender">الجنس</label>
-              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="الجنس" [(ngModel)]="allData.gender" [readonly]="true">
+              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="الجنس" [(ngModel)]="allData.gender" >
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
-                الجنسية مطلوبة
+                الجنس مطلوب
               </div>
             </div>
 
@@ -76,14 +76,14 @@
             <!-- <div class="form-group">
               <label for="gender">الجنس</label>
               <select id="gender" formControlName="gender" class="form-control" >
-                <option [value]="allData.gender">{{allData.gender}}</option>
+                <option value="">اختر الجنس</option>
                 <option *ngFor="let option of genderOptions" [value]="option">{{option}}</option>
               </select>
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
                 الجنس مطلوب
               </div>
-            </div>
-             -->
+            </div> -->
+            
             <div class="form-group">
               <label for="placeOfBirth">مكان الميلاد</label>
               <input type="text" id="placeOfBirth" formControlName="placeOfBirth" class="form-control" placeholder="مكان الميلاد">
@@ -98,7 +98,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="mobileNumber">رقم الجوال (يبدأ بـ 05)</label>
-              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" [readonly]="true">
+              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" >
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 رقم الجوال مطلوب ويجب أن يبدأ بـ 05 ويتبعه 8 أرقام
               </div>
@@ -106,7 +106,7 @@
             
             <div class="form-group">
               <label for="email">البريد الإلكتروني</label>
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" [readonly]="true">
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" >
               <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
                 بريد إلكتروني صحيح مطلوب
               </div>
@@ -405,7 +405,7 @@
             
             <div class="form-group">
               <label for="jobTitle">المسمى الوظيفي</label>
-              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="المسمى الوظيفي" [(ngModel)]="allData.jobTitle" [readonly]="true">
+              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="المسمى الوظيفي" [(ngModel)]="allData.jobTitle" >
               <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
                 المسمى الوظيفي مطلوب
               </div>
@@ -435,7 +435,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="organization">الجهة</label>
-              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="اسم الجهة" [(ngModel)]="allData.placeofwork" [readonly]="true">
+              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="اسم الجهة" [(ngModel)]="allData.placeofwork" >
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 الجهة مطلوبة
               </div>
@@ -461,7 +461,7 @@
             
             <div class="form-group">
               <label for="administration">الإدارة</label>
-              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="اسم الإدارة" [(ngModel)]="allData.empdepname" [readonly]="true">
+              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="اسم الإدارة" [(ngModel)]="allData.empdepname" >
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 الإدارة مطلوبة
               </div>
@@ -593,7 +593,7 @@
         <h2>القسم السابع: بيانات الإجازات</h2>
         <div class="section-description">
           <p>تسجيل وتوثيق الإجازات الرسمية للموظف</p>
-          <p>في هذا القسم، نسجل تفاصيل الإجازات بجميع أنواعها مع توثيق المدة والنسب لضمان سجلات دقيقة</p>
+          <p>في هذا القسم، نسجل تفاصيل الإجازات التي استمتع بها الموظف وتزيد عن 6 اشهر</p>
           <p class="field-count">4 حقول أساسية للتسجيل</p>
         </div>
         
@@ -770,7 +770,7 @@
         <h2>القسم العاشر: بيانات الدورات التدريبية</h2>
         <div class="section-description">
           <p>سجل الدورات والتدريبات التي حضرها الموظف</p>
-          <p>في هذا القسم، نسجل كافة الدورات التدريبية التي حضرها الموظف لتطوير مهاراته وقدراته المهنية</p>
+          <p>في هذا القسم، نسجل اخر دورة تدريبية حصل عليها الموظف</p>
           <p class="field-count">6 حقول للتعبئة</p>
         </div>
         
