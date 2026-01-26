@@ -227,7 +227,7 @@ export class HomeComponent implements OnInit{
         alert('تم تسجيل بياناتك بنجاح شكراً لك');
         this._Router.navigate(['/login']);
       } else {
-        alert('الرجاء المحاولة في وقت لاحق');
+        alert('الرجاء المحاولة في وقت لاحق' + response.message);
       }
     },
     error: (error) => {
