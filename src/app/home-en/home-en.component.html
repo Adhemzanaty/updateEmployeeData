@@ -150,7 +150,7 @@
 
             <div class="form-group">
               <label for="spouseNationalId">Spouse National ID <span class="required-star">*</span></label>
-              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control" placeholder="Spouse Name" [(ngModel)]="spouseName">
+              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control" placeholder="Spouse Name" [(ngModel)]="spouseName2">
               <div *ngIf="employeeForm.controls.spouseNationalId.touched && employeeForm.controls.spouseNationalId.invalid" class="error-message">
                 Field is required
               </div>
@@ -306,7 +306,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="fatherResidence">Father's Residence</label>
-              <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence Place" [(ngModel)]="isFatherDie">
+              <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence Place" [(ngModel)]="isFatherDie2">
             </div>
             
             <div class="form-group">
@@ -326,7 +326,7 @@
             
             <div class="form-group">
               <label for="motherResidence">Mother's Residence</label>
-              <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="Mother's Residence Place" [(ngModel)]="isMotherDie">
+              <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="Mother's Residence Place" [(ngModel)]="isMotherDie2">
             </div>
           </div>
           

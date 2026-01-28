@@ -14,9 +14,12 @@ export class HomeComponent implements OnInit{
 
 
   spouseName = '';
+  spouseName2 = '';
+
   isFatherDie = '';
   isMotherDie = '';
-
+  isFatherDie2 = '';
+  isMotherDie2 = '';
 
 
 
@@ -405,26 +408,37 @@ export class HomeComponent implements OnInit{
         if(option == "متزوج"){
           console.log("not azab");
           this.spouseName = '' ;
+          this.spouseName2 = '' ;
+
+          
 
         }else{
           this.spouseName = 'لا يوجد' ;
+          this.spouseName2 = 'يوجد' ;
+
         }
 
       }
 
       fatherDie(x:any){
         if(x == "1"){
-          this.isFatherDie = 'متوفي'
+          this.isFatherDie = 'متوفي';
+          this.isFatherDie2 = 'متوفي';
+
         }else{
-          this.isFatherDie = ''
+          this.isFatherDie = '';
+          this.isFatherDie2 = '';
+
         }
       }
 
       motherDie(x:any){
         if(x == "1"){
-          this.isMotherDie = 'متوفية'
+          this.isMotherDie = 'متوفية';
+          this.isMotherDie2 = 'متوفية';
         }else{
-          this.isMotherDie = ''
+          this.isMotherDie = '';
+          this.isMotherDie2 = '';
         }
       }
 

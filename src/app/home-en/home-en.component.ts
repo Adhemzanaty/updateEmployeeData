@@ -16,7 +16,9 @@ export class HomeEnComponent {
   spouseName = '';
   isFatherDie = '';
   isMotherDie = '';
-
+  spouseName2 = '';
+  isFatherDie2 = '';
+  isMotherDie2 = '';
 
 
   allData:any;
@@ -233,26 +235,38 @@ export class HomeEnComponent {
         if(option == "Married"){
           console.log("not azab");
           this.spouseName = '' ;
+          this.spouseName2 = '' ;
+
 
         }else{
           this.spouseName = 'nothing' ;
+          this.spouseName2 = 'nothing' ;
+
         }
 
       }
 
       fatherDie(x:any){
         if(x == "1"){
-          this.isFatherDie = 'dead'
+          this.isFatherDie = 'dead';
+          this.isFatherDie2 = 'dead';
+
         }else{
-          this.isFatherDie = ''
+          this.isFatherDie = '';
+          this.isFatherDie2 = '';
+
         }
       }
 
       motherDie(x:any){
         if(x == "1"){
-          this.isMotherDie = 'dead'
+          this.isMotherDie = 'dead';
+          this.isMotherDie2 = 'dead';
+
         }else{
-          this.isMotherDie = ''
+          this.isMotherDie = '';
+          this.isMotherDie2 = '';
+
         }
       }
 
