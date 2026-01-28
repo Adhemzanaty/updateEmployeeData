@@ -16,7 +16,7 @@ export class LoginComponent {
   loginText:any;
   checkLoginVar:any;
   loginForm = new FormGroup({
-    nationalId: new FormControl('' , [Validators.required, Validators.pattern('^[0-9]*') , Validators.minLength(4), Validators.maxLength(10)]),
+    nationalId: new FormControl('' , [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
     OTP: new FormControl('' , [Validators.required, Validators.pattern('^[0-9]*') , Validators.minLength(4), Validators.maxLength(4)]),
 
   })

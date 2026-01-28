@@ -1,38 +1,37 @@
-
 <div class="language-switcher">
-    <button class="lang-btn " data-lang="ar" routerLink="/home" >العربية</button>
-    <button class="lang-btn active" data-lang="en" routerLink="/homeEn">English</button>
-  </div>
+  <button class="lang-btn" data-lang="ar" routerLink="/home">Arabic</button>
+  <button class="lang-btn active" data-lang="en" routerLink="/homeEn">English</button>
+</div>
 
 <div class="form-container">
-    <h1>Employee Data Form Completion Guide</h1>
+    <h1>Employee Data Form Filling Guide</h1>
     
     <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)">
       
-      <!-- Section 1: Basic and Identification Data -->
+      <!-- Section One: Basic and Identification Data -->
       <div class="form-section">
-        <h2>Section 1: Basic and Identification Data</h2>
+        <h2>Section One: Basic and Identification Data</h2>
         <div class="section-description">
           <p>Basic personal information of the employee</p>
           <p>In this section, we identify the most important fields that must be filled accurately to ensure reliable and complete records for each employee</p>
-          <p class="field-count">13 basic fields to fill</p>
+          <p class="field-count">13 basic fields for filling</p>
         </div>
         
         <div class="section-content">
-          <h3>Fields 1 to 7: Basic Personal Data</h3>
+          <h3>Fields 1 to 9: Basic Personal Data</h3>
           
           <div class="form-row">
             <div class="form-group">
               <label for="fullName">Full Name <span class="required-star">*</span></label>
-              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname" >
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="Name" [(ngModel)]="allData.eempname">
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 Full name is required
               </div>
             </div>
-            
+
             <div class="form-group">
               <label for="nationalId">National ID Number <span class="required-star">*</span></label>
-              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId" >
+              <input type="text" id="nationalId" formControlName="nationalId" class="form-control" placeholder="ID Number" [(ngModel)]="allData.nationalId">
               <div *ngIf="employeeForm.controls.nationalId.touched && employeeForm.controls.nationalId.invalid" class="error-message">
                 National ID number is required
               </div>
@@ -42,7 +41,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="dateOfBirth">Date of Birth (mm/dd/yyyy) <span class="required-star">*</span></label>
-              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth" >
+              <input type="text" id="dateOfBirth" formControlName="dateOfBirth" placeholder="mm/dd/yyyy" class="form-control" [(ngModel)]="allData.dateOfBirth.split(' ')[0]">
               <div *ngIf="employeeForm.controls.dateOfBirth.touched && employeeForm.controls.dateOfBirth.invalid" class="error-message">
                 Date of birth is required
               </div>
@@ -50,7 +49,7 @@
             
             <div class="form-group">
               <label for="nationality">Nationality <span class="required-star">*</span></label>
-              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" >
+              <input type="text" id="nationality" formControlName="nationality" class="form-control" placeholder="Nationality" [(ngModel)]="allData.nationality" [readonly]="true">
               <div *ngIf="employeeForm.controls.nationality.touched && employeeForm.controls.nationality.invalid" class="error-message">
                 Nationality is required
               </div>
@@ -60,12 +59,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="gender">Gender <span class="required-star">*</span></label>
-              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender" >
+              <input type="text" id="gender" formControlName="gender" class="form-control" placeholder="Gender" [(ngModel)]="allData.gender">
               <div *ngIf="employeeForm.controls.gender.touched && employeeForm.controls.gender.invalid" class="error-message">
                 Gender is required
               </div>
             </div>
-
+            
             <div class="form-group">
               <label for="placeOfBirth">Place of Birth <span class="required-star">*</span></label>
               <input type="text" id="placeOfBirth" formControlName="placeOfBirth" class="form-control" placeholder="Place of Birth">
@@ -75,22 +74,22 @@
             </div>
           </div>
           
-          <h3>Fields 8 to 13: Contact and Residence Data</h3>
+          <h3>Fields 10 to 13: Contact and Residence Data</h3>
           
           <div class="form-row">
             <div class="form-group">
               <label for="mobileNumber">Mobile Number (Starts with 05) <span class="required-star">*</span></label>
-              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile" >
+              <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="allData.mobile">
               <div *ngIf="employeeForm.controls.mobileNumber.touched && employeeForm.controls.mobileNumber.invalid" class="error-message">
                 Mobile number is required and must start with 05 followed by 8 digits
               </div>
             </div>
             
             <div class="form-group">
-              <label for="email">Email Address <span class="required-star">*</span></label>
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email" >
+              <label for="email">Email <span class="required-star">*</span></label>
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="name@example.com" [(ngModel)]="allData.email">
               <div *ngIf="employeeForm.controls.email.touched && employeeForm.controls.email.invalid" class="error-message">
-                Valid email address is required
+                Valid email is required
               </div>
             </div>
           </div>
@@ -103,14 +102,6 @@
                 National address is required
               </div>
             </div>
-            
-            <!-- <div class="form-group">
-              <label for="district">District <span class="required-star">*</span></label>
-              <input type="text" id="district" formControlName="district" class="form-control" placeholder="District Name">
-              <div *ngIf="employeeForm.controls.district.touched && employeeForm.controls.district.invalid" class="error-message">
-                District is required
-              </div>
-            </div> -->
           </div>
           
           <div class="form-row">
@@ -121,36 +112,28 @@
                 Current address is required
               </div>
             </div>
-            
-            <!-- <div class="form-group">
-              <label for="city">City <span class="required-star">*</span></label>
-              <input type="text" id="city" formControlName="city" class="form-control" placeholder="City">
-              <div *ngIf="employeeForm.controls.city.touched && employeeForm.controls.city.invalid" class="error-message">
-                City is required
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
       
-      <!-- Section 2: Marital and Family Status -->
+      <!-- Section Two: Marital and Family Status -->
       <div class="form-section">
-        <h2>Section 2: Marital and Family Status</h2>
+        <h2>Section Two: Marital and Family Status</h2>
         <div class="section-description">
-          <p>Employee's social and family information</p>
+          <p>Social and family information of the employee</p>
           <p>In this section, we identify the employee's marital status, family members, dependents, and important family information</p>
-          <p class="field-count">11 fields to fill</p>
+          <p class="field-count">11 fields for filling</p>
         </div>
         
         <div class="section-content">
-          <h3>Fields 14 to 18: Spouse and Marital Status Data</h3>
+          <h3>Fields 14 to 18: Spouse Data and Marital Status</h3>
           
           <div class="form-row">
             <div class="form-group">
               <label for="maritalStatus">Marital Status <span class="required-star">*</span></label>
               <select id="maritalStatus" formControlName="maritalStatus" class="form-control">
                 <option value="">Select Marital Status</option>
-                <option *ngFor="let option of maritalStatusOptions" [value]="option">{{option}}</option>
+                <option *ngFor="let option of maritalStatusOptions" [value]="option" (click)="maritalStatus(option)">{{option}}</option>
               </select>
               <div *ngIf="employeeForm.controls.maritalStatus.touched && employeeForm.controls.maritalStatus.invalid" class="error-message">
                 Marital status is required
@@ -158,8 +141,19 @@
             </div>
             
             <div class="form-group">
-              <label for="spouseName">Spouse Name (For Married Only)</label>
-              <input type="text" id="spouseName" formControlName="spouseName" class="form-control" placeholder="Spouse Name">
+              <label for="spouseName">Spouse Name <span class="required-star">*</span></label>
+              <input type="text" id="spouseName" formControlName="spouseName" class="form-control" placeholder="Spouse Name" [(ngModel)]="spouseName">
+              <div *ngIf="employeeForm.controls.spouseName.touched && employeeForm.controls.spouseName.invalid" class="error-message">
+                Field is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="spouseNationalId">Spouse National ID <span class="required-star">*</span></label>
+              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control" placeholder="Spouse Name" [(ngModel)]="spouseName">
+              <div *ngIf="employeeForm.controls.spouseNationalId.touched && employeeForm.controls.spouseNationalId.invalid" class="error-message">
+                Field is required
+              </div>
             </div>
           </div>
           
@@ -171,7 +165,7 @@
             
             <div class="form-group">
               <label for="spouseDateOfBirth">Spouse Date of Birth</label>
-              <input type="date" id="spouseDateOfBirth" formControlName="spouseDateOfBirth" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'spouseDateOfBirth')" [value]="formatDateForDisplay(allData?.spouseDateOfBirth)" id="spouseDateOfBirth" formControlName="spouseDateOfBirth" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -185,7 +179,7 @@
             </div>
             
             <div class="form-group">
-              <label for="hasDependents">Do You Have Dependents? <span class="required-star">*</span></label>
+              <label for="hasDependents">Are there dependents? <span class="required-star">*</span></label>
               <select id="hasDependents" formControlName="hasDependents" class="form-control">
                 <option value="">Select Answer</option>
                 <option *ngFor="let option of yesNoOptions" [value]="option">{{option}}</option>
@@ -239,20 +233,20 @@
           
           <div class="form-row">
             <div class="form-group full-width">
-              <label for="degreeOfKinship">Degree of Kinship (If from Martyrs' Families)</label>
-              <input type="text" id="degreeOfKinship" formControlName="degreeOfKinship" class="form-control" placeholder="Example: Son of Martyr">
+              <label for="degreeOfKinship">Degree of Kinship (if from martyrs' families)</label>
+              <input type="text" id="degreeOfKinship" formControlName="degreeOfKinship" class="form-control" placeholder="Example: Son of the martyr">
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Section 3: Parents and Emergency Data -->
+      <!-- Section Three: Parents and Emergency Data -->
       <div class="form-section">
-        <h2>Section 3: Parents and Emergency Data</h2>
+        <h2>Section Three: Parents and Emergency Data</h2>
         <div class="section-description">
-          <p>Contact and identification information for parents and emergency contact</p>
-          <p>In this section, we record parents' data and emergency contact information for communication in necessary cases while ensuring accuracy of recorded information</p>
-          <p class="field-count">12 basic fields to fill</p>
+          <p>Contact and identification information for parents and emergency person</p>
+          <p>In this section, we record parents' data and emergency contact person for communication in necessary cases, ensuring accuracy of recorded information</p>
+          <p class="field-count">12 basic fields for filling</p>
         </div>
         
         <div class="section-content">
@@ -260,38 +254,59 @@
           
           <div class="form-row">
             <div class="form-group">
+              <label for="fatherDie">Is Father Deceased? <span class="required-star">*</span></label>
+              <select id="fatherDie" formControlName="fatherDie" class="form-control">
+                <option value="">Is Father Deceased?</option>
+                <option value="1" (click)="fatherDie(1)">Yes</option>
+                <option value="2" (click)="fatherDie(2)">No</option>
+              </select>
+              <div *ngIf="employeeForm.controls.fatherDie.touched && employeeForm.controls.fatherDie.invalid" class="error-message">
+                Field is required
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="motherDie">Is Mother Deceased? <span class="required-star">*</span></label>
+              <select id="motherDie" formControlName="motherDie" class="form-control">
+                <option value="">Is Mother Deceased?</option>
+                <option value="1" (click)="motherDie(1)">Yes</option>
+                <option value="2" (click)="motherDie(2)">No</option>
+              </select>
+              <div *ngIf="employeeForm.controls.fatherDie.touched && employeeForm.controls.fatherDie.invalid" class="error-message">
+                Field is required
+              </div>
+            </div>
+            
+            <div class="form-group">
               <label for="fatherName">Father's Name <span class="required-star">*</span></label>
               <input type="text" id="fatherName" formControlName="fatherName" class="form-control" placeholder="Father's Name">
               <div *ngIf="employeeForm.controls.fatherName.touched && employeeForm.controls.fatherName.invalid" class="error-message">
                 Father's name is required
               </div>
             </div>
-            
+
             <div class="form-group">
               <label for="fatherMobileNumber">Father's Mobile Number</label>
-              <input type="text" id="fatherMobileNumber" formControlName="fatherMobileNumber" class="form-control" placeholder="05XXXXXXXX">
+              <input type="text" id="fatherMobileNumber" formControlName="fatherMobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="isFatherDie">
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-group">
-              <label for="fatherBirthDate">father's Birthday </label>
-              <input type="date" id="fatherBirthDate" formControlName="fatherBirthDate" class="form-control" placeholder="father's Birthday">
-            
+              <label for="fatherBirthDate">Father's Birth Date</label>
+              <input type="date" (change)="handleDateChange($event, 'fatherBirthDate')" [value]="formatDateForDisplay(allData?.fatherBirthDate)" id="fatherBirthDate" formControlName="fatherBirthDate" class="form-control" placeholder="Father's Birth Date">
             </div>
             
             <div class="form-group">
-              <label for="motherBirthDate">Mother's Birthday </label>
-              <input type="date" id="motherBirthDate" formControlName="motherBirthDate" class="form-control" placeholder="Mother's Birthday">
-            
+              <label for="motherBirthDate">Mother's Birth Date</label>
+              <input type="date" (change)="handleDateChange($event, 'motherBirthDate')" [value]="formatDateForDisplay(allData?.motherBirthDate)" id="motherBirthDate" formControlName="motherBirthDate" class="form-control" placeholder="Mother's Birth Date">
             </div>
           </div>
-
 
           <div class="form-row">
             <div class="form-group">
               <label for="fatherResidence">Father's Residence</label>
-              <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence">
+              <input type="text" id="fatherResidence" formControlName="fatherResidence" class="form-control" placeholder="Father's Residence Place" [(ngModel)]="isFatherDie">
             </div>
             
             <div class="form-group">
@@ -306,12 +321,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="motherMobileNumber">Mother's Mobile Number</label>
-              <input type="text" id="motherMobileNumber" formControlName="motherMobileNumber" class="form-control" placeholder="05XXXXXXXX">
+              <input type="text" id="motherMobileNumber" formControlName="motherMobileNumber" class="form-control" placeholder="05XXXXXXXX" [(ngModel)]="isMotherDie">
             </div>
             
             <div class="form-group">
               <label for="motherResidence">Mother's Residence</label>
-              <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="Mother's Residence">
+              <input type="text" id="motherResidence" formControlName="motherResidence" class="form-control" placeholder="Mother's Residence Place" [(ngModel)]="isMotherDie">
             </div>
           </div>
           
@@ -358,12 +373,12 @@
         </div>
       </div>
       
-      <!-- Section 4: Basic Employment Data -->
+      <!-- Section Four: Basic Employment Data -->
       <div class="form-section">
-        <h2>Section 4: Basic Employment Data</h2>
+        <h2>Section Four: Basic Employment Data</h2>
         <div class="section-description">
-          <p>Employee's employment and administrative information</p>
-          <p>In this section, we record basic employment data and administrative information that defines the employee's position in the organizational structure</p>
+          <p>Employment and administrative information of the employee</p>
+          <p>In this section, we record basic employment data and administrative information that determines the employee's position in the organizational structure</p>
           <p class="field-count">12 basic employment fields</p>
         </div>
         
@@ -383,10 +398,10 @@
             </div>
             
             <div class="form-group">
-              <label for="employeeId">Employee ID <span class="required-star">*</span></label>
-              <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="Employee ID" [(ngModel)]="jobNumber" [readonly]="true">
+              <label for="employeeId">Employee Number <span class="required-star">*</span></label>
+              <input type="text" id="employeeId" formControlName="employeeId" class="form-control" placeholder="Employee Number" [(ngModel)]="jobNumber" [readonly]="true">
               <div *ngIf="employeeForm.controls.employeeId.touched && employeeForm.controls.employeeId.invalid" class="error-message">
-                Employee ID is required
+                Employee number is required
               </div>
             </div>
           </div>
@@ -402,7 +417,7 @@
             
             <div class="form-group">
               <label for="jobTitle">Job Title <span class="required-star">*</span></label>
-              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.ejobTitle" >
+              <input type="text" id="jobTitle" formControlName="jobTitle" class="form-control" placeholder="Job Title" [(ngModel)]="allData.jobTitle">
               <div *ngIf="employeeForm.controls.jobTitle.touched && employeeForm.controls.jobTitle.invalid" class="error-message">
                 Job title is required
               </div>
@@ -427,12 +442,12 @@
             </div>
           </div>
           
-          <h3>Fields 43 to 48: Appointment, Organization, Department, Section, Unit</h3>
+          <h3>Fields 43 to 48: Appointment, Organization, Administration, Department, Unit</h3>
           
           <div class="form-row">
             <div class="form-group">
               <label for="organization">Organization <span class="required-star">*</span></label>
-              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.eplaceofwork" >
+              <input type="text" id="organization" formControlName="organization" class="form-control" placeholder="Organization Name" [(ngModel)]="allData.placeofwork">
               <div *ngIf="employeeForm.controls.organization.touched && employeeForm.controls.organization.invalid" class="error-message">
                 Organization is required
               </div>
@@ -440,7 +455,7 @@
             
             <div class="form-group">
               <label for="dateOfAppointment">Appointment Date <span class="required-star">*</span></label>
-              <input type="date" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'dateOfAppointment')" [value]="formatDateForDisplay(allData?.dateOfAppointment)" id="dateOfAppointment" formControlName="dateOfAppointment" class="form-control" placeholder="mm/dd/yyyy">
               <div *ngIf="employeeForm.controls.dateOfAppointment.touched && employeeForm.controls.dateOfAppointment.invalid" class="error-message">
                 Appointment date is required
               </div>
@@ -458,7 +473,7 @@
             
             <div class="form-group">
               <label for="administration">Administration <span class="required-star">*</span></label>
-              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.eEempdepname" >
+              <input type="text" id="administration" formControlName="administration" class="form-control" placeholder="Administration Name" [(ngModel)]="allData.empdepname">
               <div *ngIf="employeeForm.controls.administration.touched && employeeForm.controls.administration.invalid" class="error-message">
                 Administration is required
               </div>
@@ -485,49 +500,110 @@
         </div>
       </div>
       
-      <!-- Section 5: Data of Employees Assigned from Another Entity -->
+      <!-- Section Five: Assigned from Another Organization Data -->
       <div class="form-section">
-        <h2>Section 5: Data of Employees Assigned from Another Entity</h2>
+        <h2>Section Five: Assigned from Another Organization Data</h2>
         <div class="section-description">
-          <p>Information of employees assigned from their original entities to work with us</p>
-          <p>In this section, we record data of employees temporarily assigned from their original entities to work in our entity</p>
-          <p class="field-count">4 fields to fill</p>
+          <p>Information of employees assigned from their original organizations to work with us</p>
+          <p>In this section, we record data of employees temporarily assigned from their original organizations to work in our organization</p>
+          <p class="field-count">4 fields for filling</p>
         </div>
         
         <div class="section-content">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="assignmentDepartment">Assignment Department</label>
-              <input type="text" id="assignmentDepartment" formControlName="assignmentDepartment" class="form-control" placeholder="Assignment Department">
-            </div>
-            
-            <div class="form-group">
-              <label for="assignmentOrganization">Assignment Organization</label>
-              <input type="text" id="assignmentOrganization" formControlName="assignmentOrganization" class="form-control" placeholder="Original Assignment Entity">
-            </div>
-          </div>
+          <h3>Assignment Data</h3>
           
           <div class="form-row">
             <div class="form-group">
-              <label for="assignmentStartDate">Assignment Start Date</label>
-              <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <label for="isAssigned">Are You Assigned? <span class="required-star">*</span></label>
+              <select id="isAssigned" formControlName="isAssigned" class="form-control">
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div *ngIf="employeeForm.controls.isAssigned.touched && employeeForm.controls.isAssigned.invalid" class="error-message">
+                Required
+              </div>
             </div>
             
             <div class="form-group">
-              <label for="assignmentEndDate">Assignment End Date</label>
-              <input type="date" id="assignmentEndDate" formControlName="assignmentEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <label for="isAssignmentContinuous">Is Assignment Continuous? <span class="required-star">*</span></label>
+              <select id="isAssignmentContinuous" formControlName="isAssignmentContinuous" class="form-control">
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div *ngIf="employeeForm.controls.isAssignmentContinuous.touched && employeeForm.controls.isAssignmentContinuous.invalid" class="error-message">
+                Required
+              </div>
+            </div>
+          </div>
+          
+          <div *ngIf="employeeForm.get('isAssigned')?.value === 'yes'">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="assignmentDepartment">Assignment Department <span class="required-star">*</span></label>
+                <input type="text" id="assignmentDepartment" formControlName="assignmentDepartment" class="form-control" placeholder="Assignment Department">
+                <div *ngIf="employeeForm.get('assignmentDepartment')?.invalid && employeeForm.get('assignmentDepartment')?.touched" class="text-danger small">
+                  This field is required
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="assignmentOrganization">Assignment Organization <span class="required-star">*</span></label>
+                <input type="text" id="assignmentOrganization" formControlName="assignmentOrganization" class="form-control" placeholder="Original Assignment Organization">
+                <div *ngIf="employeeForm.get('assignmentOrganization')?.invalid && employeeForm.get('assignmentOrganization')?.touched" class="text-danger small">
+                  This field is required
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="assignmentStartDate">Assignment Start Date <span class="required-star">*</span></label>
+                <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
+                <div *ngIf="employeeForm.get('assignmentStartDate')?.invalid && employeeForm.get('assignmentStartDate')?.touched" class="text-danger small">
+                  This field is required
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="assignmentEndDate">
+                  Assignment End Date 
+                  <span *ngIf="employeeForm.get('isAssignmentContinuous')?.value !== 'yes'">*</span>
+                </label>
+                
+                <input 
+                  [type]="employeeForm.get('isAssignmentContinuous')?.value === 'yes' ? 'text' : 'date'"
+                  id="assignmentEndDate" 
+                  formControlName="assignmentEndDate" 
+                  class="form-control" 
+                  [readonly]="employeeForm.get('isAssignmentContinuous')?.value === 'yes'"
+                  [placeholder]="employeeForm.get('isAssignmentContinuous')?.value === 'yes' ? 'Continuous' : 'mm/dd/yyyy'">
+                
+                <div *ngIf="employeeForm.get('isAssignmentContinuous')?.value !== 'yes' && 
+                          employeeForm.get('assignmentEndDate')?.invalid && 
+                          employeeForm.get('assignmentEndDate')?.touched" 
+                    class="text-danger small">
+                  This field is required
+                </div>
+                
+                <div *ngIf="employeeForm.get('isAssignmentContinuous')?.value === 'yes'" 
+                    class="text-success small">
+                  ✓ Assignment is continuous
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Section 6: Scholarship and Study Data -->
+      <!-- Section Six: Scholarship and Study Data -->
       <div class="form-section">
-        <h2>Section 6: Scholarship and Study Data</h2>
+        <h2>Section Six: Scholarship and Study Data</h2>
         <div class="section-description">
-          <p>Employee's overseas study scholarship information</p>
-          <p>In this section, we record details of the employee's study scholarship if they are studying abroad on scholarship</p>
-          <p class="field-count">7 fields to fill</p>
+          <p>Employee's study scholarship information abroad</p>
+          <p>In this section, we record details of the employee's study scholarship if they are on a scholarship studying abroad</p>
+          <p class="field-count">7 fields for filling</p>
         </div>
         
         <div class="section-content">
@@ -552,7 +628,7 @@
             </div>
             
             <div class="form-group">
-              <label for="scholarshipUniversity">University</label>
+              <label for="scholarshipUniversity">Educational Institution</label>
               <input type="text" id="scholarshipUniversity" formControlName="scholarshipUniversity" class="form-control" placeholder="University">
             </div>
           </div>
@@ -562,7 +638,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="scholarshipStartDate">Scholarship Start Date</label>
-              <input type="date" id="scholarshipStartDate" formControlName="scholarshipStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'scholarshipStartDate')" [value]="formatDateForDisplay(allData?.scholarshipStartDate)" id="scholarshipStartDate" formControlName="scholarshipStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
@@ -574,7 +650,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="scholarshipEndDate">Scholarship End Date</label>
-              <input type="date" id="scholarshipEndDate" formControlName="scholarshipEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'scholarshipEndDate')" [value]="formatDateForDisplay(allData?.scholarshipEndDate)" id="scholarshipEndDate" formControlName="scholarshipEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group full-width">
@@ -585,12 +661,12 @@
         </div>
       </div>
       
-      <!-- Section 7: Leave Data -->
+      <!-- Section Seven: Leave Data -->
       <div class="form-section">
-        <h2>Section 7: Leave Data</h2>
+        <h2>Section Seven: Leave Data</h2>
         <div class="section-description">
           <p>Recording and documenting employee's official leaves</p>
-          <p>In this section, we record details of employee vacations exceeding 6 months.</p>
+          <p>In this section, we record details of leaves enjoyed by the employee that exceed 6 months</p>
           <p class="field-count">4 basic fields for recording</p>
         </div>
         
@@ -598,12 +674,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="leaveStartDate">Leave Start Date</label>
-              <input type="date" id="leaveStartDate" formControlName="leaveStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'leaveStartDate')" [value]="formatDateForDisplay(allData?.leaveStartDate)" id="leaveStartDate" formControlName="leaveStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="leaveEndDate">Leave End Date</label>
-              <input type="date" id="leaveEndDate" formControlName="leaveEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'leaveEndDate')" [value]="formatDateForDisplay(allData?.leaveEndDate)" id="leaveEndDate" formControlName="leaveEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -624,17 +700,17 @@
         </div>
       </div>
       
-      <!-- Section 8: Educational Qualifications Data -->
+      <!-- Section Eight: Educational Qualifications Data -->
       <div class="form-section">
-        <h2>Section 8: Educational Qualifications Data</h2>
+        <h2>Section Eight: Educational Qualifications Data</h2>
         <div class="section-description">
-          <p>Employee's educational qualifications</p>
-          <p>In this section, we record the highest educational qualifications obtained by the employee with details of major and educational institution</p>
-          <p class="field-count">7 basic educational fields</p>
+          <p>Employee's academic and educational qualifications</p>
+          <p>In this section, we record the highest academic qualifications obtained by the employee with details of specialization and educational institution</p>
+          <p class="field-count">7 basic academic fields</p>
         </div>
         
         <div class="section-content">
-          <h3>Fields 65 to 68: Qualifications and Majors</h3>
+          <h3>Fields 65 to 68: Qualifications and Specializations</h3>
           
           <div class="form-row">
             <div class="form-group">
@@ -715,13 +791,13 @@
         </div>
       </div>
       
-      <!-- Section 9: Health Classification Data -->
+      <!-- Section Nine: Health Classification Data -->
       <div class="form-section">
-        <h2>Section 9: Health Classification Data (For Healthcare Professionals Only)</h2>
+        <h2>Section Nine: Health Classification Data (For Health Professionals Only)</h2>
         <div class="section-description">
-          <p>For healthcare professionals only</p>
-          <p>In this section, we record health classification data for healthcare professionals, as approved by the Saudi Commission for Health Specialties</p>
-          <p class="field-count">5 fields specific to healthcare professionals</p>
+          <p>For health professionals only</p>
+          <p>In this section, we record health classification data for health employees, approved by the Saudi Commission for Health Specialties</p>
+          <p class="field-count">5 fields specific to health professionals</p>
         </div>
         
         <div class="section-content">
@@ -745,30 +821,30 @@
             
             <div class="form-group">
               <label for="classificationIssueDate">Classification Issue Date</label>
-              <input type="date" id="classificationIssueDate" formControlName="classificationIssueDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'classificationIssueDate')" [value]="formatDateForDisplay(allData?.classificationIssueDate)" id="classificationIssueDate" formControlName="classificationIssueDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
           <div class="form-row">
             <div class="form-group full-width">
               <label for="classificationExpiryDate">Classification Expiry Date</label>
-              <input type="date" id="classificationExpiryDate" formControlName="classificationExpiryDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'classificationExpiryDate')" [value]="formatDateForDisplay(allData?.classificationExpiryDate)" id="classificationExpiryDate" formControlName="classificationExpiryDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
           <div class="form-note">
-            <p><strong>Note:</strong> This section is only for healthcare professionals. If the employee is not a healthcare professional, leave these fields empty.</p>
+            <p><strong>Note:</strong> This section is only for health professionals. If the employee is not a health professional, leave these fields empty.</p>
           </div>
         </div>
       </div>
       
-      <!-- Section 10: Training Courses Data -->
+      <!-- Section Ten: Training Courses Data -->
       <div class="form-section">
-        <h2>Section 10: Training Courses Data</h2>
+        <h2>Section Ten: Training Courses Data</h2>
         <div class="section-description">
           <p>Record of courses and trainings attended by the employee</p>
-          <p>In this section, we record the last training course the employee completed.</p>
-          <p class="field-count">6 fields to fill</p>
+          <p>In this section, we record the last training course obtained by the employee</p>
+          <p class="field-count">6 fields for filling</p>
         </div>
         
         <div class="section-content">
@@ -784,39 +860,27 @@
             </div>
           </div>
           
-          <!-- <div class="form-row">
-            <div class="form-group">
-              <label for="courseStartDate">Course Start Date</label>
-              <input type="date" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="mm/dd/yyyy">
-            </div>
-            
-            <div class="form-group">
-              <label for="courseEndDate">Course End Date</label>
-              <input type="date" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="mm/dd/yyyy">
-            </div>
-          </div> -->
-          
           <div class="form-row">
             <div class="form-group">
-              <label for="courseDuration">Course type</label>
-              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course type">
+              <label for="courseDuration">Course Type</label>
+              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course Type">
             </div>
             
             <div class="form-group">
-              <label for="certificateNumber">Course field</label>
-              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Course field">
+              <label for="certificateNumber">Course Field</label>
+              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Course Field">
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Section 11: Previous Experience Data -->
+      <!-- Section Eleven: Previous Experience Data -->
       <div class="form-section">
-        <h2>Section 11: Previous Experience Data</h2>
+        <h2>Section Eleven: Previous Experience Data</h2>
         <div class="section-description">
           <p>Employee's previous work experience</p>
           <p>In this section, we record details of previous jobs held by the employee before joining the current workplace</p>
-          <p class="field-count">5 fields to fill</p>
+          <p class="field-count">5 fields for filling</p>
         </div>
         
         <div class="section-content">
@@ -835,12 +899,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="experienceStartDate">Experience Start Date</label>
-              <input type="date" id="experienceStartDate" formControlName="experienceStartDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'experienceStartDate')" [value]="formatDateForDisplay(allData?.experienceStartDate)" id="experienceStartDate" formControlName="experienceStartDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
             
             <div class="form-group">
               <label for="experienceEndDate">Experience End Date</label>
-              <input type="date" id="experienceEndDate" formControlName="experienceEndDate" class="form-control" placeholder="mm/dd/yyyy">
+              <input type="date" (change)="handleDateChange($event, 'experienceEndDate')" [value]="formatDateForDisplay(allData?.experienceEndDate)" id="experienceEndDate" formControlName="experienceEndDate" class="form-control" placeholder="mm/dd/yyyy">
             </div>
           </div>
           
@@ -859,10 +923,4 @@
         <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
       </div>
     </form>
-  </div>
-
-  <!-- Show spinner when loading -->
-  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
-    <div class="spinner"></div>
-    <p class="loading-text">Loading....</p>
   </div>

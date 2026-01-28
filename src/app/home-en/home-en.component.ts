@@ -11,6 +11,14 @@ import { Router } from '@angular/router';
 })
 export class HomeEnComponent {
 
+
+
+  spouseName = '';
+  isFatherDie = '';
+  isMotherDie = '';
+
+
+
   allData:any;
   jobNumber:any;
 
@@ -34,25 +42,22 @@ export class HomeEnComponent {
       // جلب الداتا
       this.getObject();
       this.getObject2();
-      }
+
+      this.setupFormControls();
+          }
   
-  getObject() {
-    this.allData = this._APIService.getData();
-    console.log(this.allData);
-     // هتظهر الاوبجيكت
-    return this.allData;
-  }
-  getObject2() {
-    this.jobNumber = this._APIService.getData2();
-    // console.log(this.jobNumber);
-     // هتظهر الاوبجيكت
-    return this.jobNumber;
-  }
+
 
       // القسم الأول: البيانات الأساسية والتعريفية (13 حقل)
       employeeForm = new FormGroup({
         // الحقول 1-7: البيانات الشخصية الأساسية
         fullName: new FormControl('' , [Validators.required ]),
+
+        // firstName: new FormControl('' , [Validators.required ]),
+        // secondName: new FormControl('' , [Validators.required ]),
+        // thirdName: new FormControl('' , [Validators.required ]),
+        // lastName: new FormControl('' , [Validators.required ]),
+
         nationalId: new FormControl('' , [Validators.required ]),
         dateOfBirth: new FormControl('' , [Validators.required ]),
         nationality: new FormControl('' , [Validators.required ]),
@@ -64,12 +69,13 @@ export class HomeEnComponent {
         nationalAddress: new FormControl('' , [Validators.required ]),
         district: new FormControl(''),
         currentResidence: new FormControl('' , [Validators.required ]),
-        city: new FormControl(''),
+        city: new FormControl('' ),
 
       // القسم الثاني: الحالة الاجتماعية والعائلية (11 حقل)
 
         // الحقول 14-18: بيانات الزوج/الزوجة
-        spouseName: new FormControl(''),
+        spouseName: new FormControl('' , [Validators.required ]),
+        spouseNationalId: new FormControl('' , [Validators.required ]),
         maritalStatus: new FormControl('' , [Validators.required ]),
         spouseMobileNumber: new FormControl(''),
         spouseDateOfBirth: new FormControl(''),
@@ -84,11 +90,13 @@ export class HomeEnComponent {
 
       // القسم الثالث: بيانات الوالدين والطوارئ (12 حقل)
         // الحقول 25-30: بيانات الأب والأم
+        fatherDie: new FormControl('' , [Validators.required ]),
+        motherDie: new FormControl('' , [Validators.required ]),
         fatherName: new FormControl('' , [Validators.required ]),
-        fatherMobileNumber: new FormControl(['', Validators.pattern(/^05\d{8}$/)]),
+        fatherMobileNumber: new FormControl('' , [Validators.required ]),
         fatherResidence: new FormControl(''),
         motherName: new FormControl('' , [Validators.required ]),
-        motherMobileNumber: new FormControl('', Validators.pattern(/^05\d{8}$/)),
+        motherMobileNumber: new FormControl('' , [Validators.required ]),
         motherResidence: new FormControl(''),
         fatherBirthDate: new FormControl(''),
         motherBirthDate: new FormControl(''),
@@ -97,6 +105,8 @@ export class HomeEnComponent {
         emergencyContactNumber: new FormControl('', [Validators.required, Validators.pattern(/^05\d{8}$/)]),
         relationshipToEmergencyContact: new FormControl('' , [Validators.required ]),
         worksAtSameOrganization: new FormControl('' , [Validators.required ]),
+
+
 
       // القسم الرابع: البيانات الوظيفية الأساسية (12 حقل)
         // الحقول 37-42: المعلومات الوظيفية الأساسية
@@ -171,8 +181,161 @@ export class HomeEnComponent {
         experienceStartDate: new FormControl(''),
         experienceEndDate: new FormControl(''),
         yearsOfExperience: new FormControl([0]),
+
+
+         // === الحقول الجديدة ===
+        // القسم 12: بيانات التكليف (6 حقول جديدة)
+        isAssigned: new FormControl('', [Validators.required]), // حقل إجباري
+        isAssignmentContinuous: new FormControl('', [Validators.required]), // حقل إجباري
+        
+
+        
       })
 
+      handleDateChange(event: any, fieldName: string) {
+        const dateValue = event.target.value;
+        
+        if (dateValue) {
+          // تحويل من 2024-12-31 إلى 12/31/2024
+          const [year, month, day] = dateValue.split('-');
+          const formattedDate = `${day}/${month}/${year}`;
+          
+          // تحديث الفورم
+          this.employeeForm.patchValue({
+            [fieldName]: formattedDate
+          });
+
+          console.log(formattedDate);
+          
+          // تحديث الـ model - مع التأكد من وجوده
+          if (this.allData) {
+            if (!this.allData[fieldName]) {
+              this.allData[fieldName] = '';
+            }
+            this.allData[fieldName] = formattedDate;
+          }
+        }
+      }
+      formatDateForDisplay(dateString: string | undefined | null): string {
+        if (!dateString) return '';
+        
+        try {
+          const [month, day, year] = dateString.split('/');
+          return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+        } catch (error) {
+          return '';
+        }
+      }
+      
+
+      maritalStatus(option:any){
+
+        if(option == "متزوج"){
+          console.log("not azab");
+          this.spouseName = '' ;
+
+        }else{
+          this.spouseName = 'لا يوجد' ;
+        }
+
+      }
+
+      fatherDie(x:any){
+        if(x == "1"){
+          this.isFatherDie = 'متوفي'
+        }else{
+          this.isFatherDie = ''
+        }
+      }
+
+      motherDie(x:any){
+        if(x == "1"){
+          this.isMotherDie = 'متوفية'
+        }else{
+          this.isMotherDie = ''
+        }
+      }
+
+      // دالة واحدة للتحكم في كل شيء
+
+      setupFormControls() {
+        // عند تغيير "هل أنت مكلف؟"
+        this.employeeForm.get('isAssigned')?.valueChanges.subscribe(value => {
+          this.updateAssignmentFields();
+        });
+      
+        // عند تغيير "هل التكليف مستمر؟"
+        this.employeeForm.get('isAssignmentContinuous')?.valueChanges.subscribe(value => {
+          this.updateAssignmentFields();
+        });
+      }
+      
+      // دالة واحدة تعمل كل شيء
+      updateAssignmentFields() {
+        const isAssigned = this.employeeForm.get('isAssigned')?.value;
+        const isContinuous = this.employeeForm.get('isAssignmentContinuous')?.value;
+        
+        // الحقول المراد التحكم فيها
+        const fields = [
+          'assignmentDepartment',
+          'assignmentOrganization', 
+          'assignmentStartDate',
+          'assignmentEndDate'
+        ];
+        
+        fields.forEach(fieldName => {
+          const field = this.employeeForm.get(fieldName);
+          
+          if (isAssigned === 'yes') {
+            // إذا كان مكلف ← جميع الحقول إجبارية
+            if (fieldName === 'assignmentEndDate' && isContinuous === 'yes') {
+              // إذا كان مستمر ← الحقل readOnly + قيمة "مستمر"
+              field?.setValue('مستمر');
+              
+              field?.clearValidators();
+            } else {
+              // بقية الحقول أو إذا مش مستمر ← required
+              field?.enable();
+              field?.setValidators(Validators.required);
+              
+              // إذا كان حقل تاريخ النهاية ومش مستمر، تأكد من تنظيف القيمة
+              if (fieldName === 'assignmentEndDate' && isContinuous === 'no' && field?.value === 'مستمر') {
+                field?.setValue('');
+              }
+            }
+          } else {
+            // إذا لم يكن مكلف ← كل الحقول مش إجبارية
+            field?.setValue('');
+            field?.enable();
+            field?.clearValidators();
+          }
+          
+          field?.updateValueAndValidity();
+        });
+      }
+      getObject() {
+        this.allData = this._APIService.getData();
+        // console.log(this.allData);
+         // هتظهر الاوبجيكت
+
+         if( this.allData.gender == 'MALE' ){
+
+          this.allData.gender = 'ذكر' ;
+
+         }else if( this.allData.gender == 'FEMALE' ){
+
+          this.allData.gender = 'انثى' ;
+
+         }
+    
+        return this.allData;
+      }
+      getObject2() {
+        this.jobNumber = this._APIService.getData2();
+        // console.log(this.jobNumber);
+         // هتظهر الاوبجيكت
+        return this.jobNumber;
+      }
 
   onSubmit(x:any){
 
