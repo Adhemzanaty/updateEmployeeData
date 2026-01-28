@@ -23,15 +23,15 @@ export class HomeEnComponent {
   jobNumber:any;
 
   // Options for dropdowns
-  maritalStatusOptions = ['أعزب', 'متزوج', 'مطلق', 'أرمل'];
-  genderOptions = ['ذكر', 'أنثى'];
-  spouseStatusOptions = ['يعمل', 'لا يعمل'];
-  yesNoOptions = ['نعم', 'لا'];
-  employeeCategoryOptions = ['مدني', 'عسكري', 'صحي', 'تعليمي', 'أكاديمي', 'هندسي', 'إداري', 'تقني', 'قانوني', 'أمني'];
-  employmentStatusOptions = ['أساسي', 'إجازة', 'تكليف'];
-  studySystemOptions = ['النظام', 'انتساب', 'مسائي', 'دراسة موازية'];
-  leaveTypeOptions = ['بدون راتب', 'مرافقة مريض'];
-  qualificationTypeOptions = ['جامعة', 'معهد', 'دبلوم', 'تدريبي', 'دراسي'];
+  maritalStatusOptions = ['Single', 'Married', 'Divorced', 'Widowed'];
+  genderOptions = ['Male', 'Female'];
+  spouseStatusOptions = ['Working', 'Not Working'];
+  yesNoOptions = ['Yes', 'No'];
+  employeeCategoryOptions = ['Civil', 'Military', 'Health', 'Educational', 'Academic', 'Engineering', 'Administrative', 'Technical', 'Legal', 'Security'];
+  employmentStatusOptions = ['Main', 'Leave', 'Assignment'];
+  studySystemOptions = ['Regular', 'Enrollment', 'Evening', 'Parallel Study'];
+  leaveTypeOptions = ['Unpaid', 'Patient Accompaniment'];
+  qualificationTypeOptions = ['University', 'Institute', 'Diploma', 'Training', 'Academic'];
   
   constructor(public _APIService: APIService , private fb: FormBuilder , private _Router:Router) {
   }
@@ -220,7 +220,7 @@ export class HomeEnComponent {
         if (!dateString) return '';
         
         try {
-          const [month, day, year] = dateString.split('/');
+          const [day, month, year] = dateString.split('/');
           return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
         } catch (error) {
           return '';
@@ -230,19 +230,19 @@ export class HomeEnComponent {
 
       maritalStatus(option:any){
 
-        if(option == "متزوج"){
+        if(option == "Married"){
           console.log("not azab");
           this.spouseName = '' ;
 
         }else{
-          this.spouseName = 'لا يوجد' ;
+          this.spouseName = 'nothing' ;
         }
 
       }
 
       fatherDie(x:any){
         if(x == "1"){
-          this.isFatherDie = 'متوفي'
+          this.isFatherDie = 'dead'
         }else{
           this.isFatherDie = ''
         }
@@ -250,7 +250,7 @@ export class HomeEnComponent {
 
       motherDie(x:any){
         if(x == "1"){
-          this.isMotherDie = 'متوفية'
+          this.isMotherDie = 'dead'
         }else{
           this.isMotherDie = ''
         }
@@ -290,7 +290,7 @@ export class HomeEnComponent {
             // إذا كان مكلف ← جميع الحقول إجبارية
             if (fieldName === 'assignmentEndDate' && isContinuous === 'yes') {
               // إذا كان مستمر ← الحقل readOnly + قيمة "مستمر"
-              field?.setValue('مستمر');
+              field?.setValue('continuous');
               
               field?.clearValidators();
             } else {
@@ -299,7 +299,7 @@ export class HomeEnComponent {
               field?.setValidators(Validators.required);
               
               // إذا كان حقل تاريخ النهاية ومش مستمر، تأكد من تنظيف القيمة
-              if (fieldName === 'assignmentEndDate' && isContinuous === 'no' && field?.value === 'مستمر') {
+              if (fieldName === 'assignmentEndDate' && isContinuous === 'no' && field?.value === 'continuous') {
                 field?.setValue('');
               }
             }
@@ -320,11 +320,11 @@ export class HomeEnComponent {
 
          if( this.allData.gender == 'MALE' ){
 
-          this.allData.gender = 'ذكر' ;
+          this.allData.gender = 'MALE' ;
 
          }else if( this.allData.gender == 'FEMALE' ){
 
-          this.allData.gender = 'انثى' ;
+          this.allData.gender = 'FEMALE' ;
 
          }
     
@@ -340,7 +340,7 @@ export class HomeEnComponent {
   onSubmit(x:any){
 
 
-  // console.log(x.value);
+  console.log(x.value);
 
   this._APIService.show();
 

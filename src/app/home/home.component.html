@@ -22,13 +22,13 @@
         </div>
         
         <div class="section-content">
-          <h3>الحقول من 1 إلى 9: البيانات الشخصية الأساسية</h3>
+          <h3>الحقول من 1 إلى 7: البيانات الشخصية الأساسية</h3>
           
           <div class="form-row">
 
             <div class="form-group">
               <label for="fullName">الاسم رباعي <span class="required-star">*</span></label>
-              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم"  [(ngModel)]="allData.eempname">
+              <input type="text" id="fullName" formControlName="fullName" class="form-control" placeholder="الاسم"  [(ngModel)]="allData.empname">
               <div *ngIf="employeeForm.controls.fullName.touched && employeeForm.controls.fullName.invalid" class="error-message">
                 الاسم رباعي مطلوب
               </div>
@@ -699,7 +699,7 @@
           <div class="form-row">
             <div class="form-group">
               <label for="assignmentStartDate">بداية التكليف <span class="required-star">*</span></label>
-              <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" 
+              <input type="date" (change)="handleDateChange($event, 'assignmentStartDate')" [value]="formatDateForDisplay(allData?.assignmentStartDate)" id="assignmentStartDate" formControlName="assignmentStartDate" 
                     class="form-control" placeholder="mm/dd/yyyy">
               <div *ngIf="employeeForm.get('assignmentStartDate')?.invalid && employeeForm.get('assignmentStartDate')?.touched" 
                   class="text-danger small">
@@ -1010,13 +1010,13 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="courseDuration">نوع الدورة</label>
-              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="نوع الدورة">
+              <label for="courseStartDate">نوع الدورة</label>
+              <input type="text" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="نوع الدورة">
             </div>
             
             <div class="form-group">
-              <label for="certificateNumber">مجال الدورة</label>
-              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="مجال الدورة">
+              <label for="courseEndDate">مجال الدورة</label>
+              <input type="text" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="مجال الدورة">
             </div>
           </div>
         </div>

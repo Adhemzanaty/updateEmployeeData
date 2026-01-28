@@ -392,7 +392,7 @@ export class HomeComponent implements OnInit{
         if (!dateString) return '';
         
         try {
-          const [month, day, year] = dateString.split('/');
+          const [day, month, year] = dateString.split('/');
           return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
         } catch (error) {
           return '';
@@ -487,7 +487,7 @@ export class HomeComponent implements OnInit{
       }
       getObject() {
         this.allData = this._APIService.getData();
-        // console.log(this.allData);
+        console.log(this.allData);
          // هتظهر الاوبجيكت
 
          if( this.allData.gender == 'MALE' ){
@@ -513,41 +513,40 @@ export class HomeComponent implements OnInit{
 
   console.log(x.value);
 
-  // this._APIService.show();
+  this._APIService.show();
 
 
 
 
-  // this._APIService.EmpInformationUpdate(x.value).subscribe({
-  //   next: (response) => {
-  //     // في حالة النجاح (status 200)
-  //     console.log('Request succeeded with status 200');
+  this._APIService.EmpInformationUpdate(x.value).subscribe({
+    next: (response) => {
+      // في حالة النجاح (status 200)
+      console.log('Request succeeded with status 200');
       
-  //     if (response.isSuccess) {
-  //       alert('تم تسجيل بياناتك بنجاح شكراً لك');
-  //       this._Router.navigate(['/login']);
-  //     } else {
-  //       alert('الرجاء المحاولة في وقت لاحق');
-  //     }
-  //   },
-  //   error: (error) => {
-  //     // في حالة فشل الطلب (مثل 400، 404، 500، إلخ)
-  //     const statusCode = error.status; // رقم الاستيتس هنا
-  //     const errorMessage = error.message || 'حدث خطأ غير معروف';
+      if (response.isSuccess) {
+        alert('تم تسجيل بياناتك بنجاح شكراً لك');
+        this._Router.navigate(['/login']);
+      } else {
+        alert('الرجاء المحاولة في وقت لاحق');
+      }
+    },
+    error: (error) => {
+      // في حالة فشل الطلب (مثل 400، 404، 500، إلخ)
+      const statusCode = error.status; // رقم الاستيتس هنا
+      const errorMessage = error.message || 'حدث خطأ غير معروف';
       
-  //     console.log(`Request failed with status: ${statusCode}`);
-  //     alert(`حدث خطأ (${statusCode}): ${errorMessage}`);
-  //   },
-  //   complete: () => {
-  //     // تُنفّذ بعد اكتمال الطلب (نجاحاً أو فشلاً)
-  //     console.log('Request completed');
-  //     this._APIService.hide();
+      console.log(`Request failed with status: ${statusCode}`);
+      alert(`حدث خطأ (${statusCode}): ${errorMessage}`);
+    },
+    complete: () => {
+      // تُنفّذ بعد اكتمال الطلب (نجاحاً أو فشلاً)
+      console.log('Request completed');
+      this._APIService.hide();
 
-  //   }
-  // });
+    }
+  });
      
 
-  //     });
 
 
 
@@ -562,7 +561,7 @@ export class HomeComponent implements OnInit{
 
 
 
-  // this.resetForm();
+  this.resetForm();
   }
 
 

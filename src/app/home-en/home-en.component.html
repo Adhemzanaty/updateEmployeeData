@@ -18,7 +18,7 @@
         </div>
         
         <div class="section-content">
-          <h3>Fields 1 to 9: Basic Personal Data</h3>
+          <h3>Fields 1 to 7: Basic Personal Data</h3>
           
           <div class="form-row">
             <div class="form-group">
@@ -560,7 +560,7 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="assignmentStartDate">Assignment Start Date <span class="required-star">*</span></label>
-                <input type="date" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
+                <input type="date" (change)="handleDateChange($event, 'assignmentStartDate')" [value]="formatDateForDisplay(allData?.assignmentStartDate)" id="assignmentStartDate" formControlName="assignmentStartDate" class="form-control" placeholder="mm/dd/yyyy">
                 <div *ngIf="employeeForm.get('assignmentStartDate')?.invalid && employeeForm.get('assignmentStartDate')?.touched" class="text-danger small">
                   This field is required
                 </div>
@@ -862,13 +862,13 @@
           
           <div class="form-row">
             <div class="form-group">
-              <label for="courseDuration">Course Type</label>
-              <input type="text" id="courseDuration" formControlName="courseDuration" class="form-control" placeholder="Course Type">
+              <label for="courseStartDate">Course Type</label>
+              <input type="text" id="courseStartDate" formControlName="courseStartDate" class="form-control" placeholder="Course Type">
             </div>
             
             <div class="form-group">
-              <label for="certificateNumber">Course Field</label>
-              <input type="text" id="certificateNumber" formControlName="certificateNumber" class="form-control" placeholder="Course Field">
+              <label for="courseEndDate">Course Field</label>
+              <input type="text" id="courseEndDate" formControlName="courseEndDate" class="form-control" placeholder="Course Field">
             </div>
           </div>
         </div>
@@ -924,3 +924,10 @@
       </div>
     </form>
   </div>
+
+
+    
+  <!-- عرض السبينر لما يكون التحميل شغال -->
+  <div *ngIf="_APIService.loading$ | async" class="spinner-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">Loading....</p></div>
