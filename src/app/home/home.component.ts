@@ -522,63 +522,89 @@ export class HomeComponent implements OnInit{
          // هتظهر الاوبجيكت
         return this.jobNumber;
       }
-  onSubmit(x:any){
 
 
-  console.log(x.value);
-
-  this._APIService.show();
-
-
-
-
-  this._APIService.EmpInformationUpdate(x.value).subscribe({
-    next: (response) => {
-      // في حالة النجاح (status 200)
-      console.log('Request succeeded with status 200');
       
-      if (response.isSuccess) {
-        alert('تم تسجيل بياناتك بنجاح شكراً لك');
-        this._Router.navigate(['/login']);
-      } else {
-        alert('الرجاء المحاولة في وقت لاحق');
+      onSubmit(x: any) {
+        console.log(x.value);
+        this._APIService.show();
+      
+        if (this.employeeForm.valid) {
+          this._APIService.EmpInformationUpdate(x.value).subscribe({
+            next: (response) => {
+              console.log('Request succeeded with status 200');
+              
+              if (response.isSuccess) {
+                alert('تم تسجيل بياناتك بنجاح شكراً لك');
+                this._Router.navigate(['/login']);
+                this.resetForm();
+
+              } else {
+                alert('الرجاء المحاولة في وقت لاحق');
+              }
+            },
+            error: (error) => {
+              const statusCode = error.status;
+              const errorMessage = error.message || 'حدث خطأ غير معروف';
+              
+              console.log(`Request failed with status: ${statusCode}`);
+              alert(`حدث خطأ (${statusCode}): ${errorMessage}`);
+            },
+            complete: () => {
+              console.log('Request completed');
+              this._APIService.hide();
+            }
+          });
+          
+          console.log('تمام الفورم صح');
+        } else {
+          this._APIService.hide();
+          // الفورم فيه غلط
+          this.markAllFieldsTouched();
+          this.scrollToFirstError();
+        }
       }
-    },
-    error: (error) => {
-      // في حالة فشل الطلب (مثل 400، 404، 500، إلخ)
-      const statusCode = error.status; // رقم الاستيتس هنا
-      const errorMessage = error.message || 'حدث خطأ غير معروف';
       
-      console.log(`Request failed with status: ${statusCode}`);
-      alert(`حدث خطأ (${statusCode}): ${errorMessage}`);
-    },
-    complete: () => {
-      // تُنفّذ بعد اكتمال الطلب (نجاحاً أو فشلاً)
-      console.log('Request completed');
-      this._APIService.hide();
-
-    }
-  });
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  this.resetForm();
-  }
-
-
+      // دالة تتحقق من الحقول
+      isFieldInvalid(fieldName: string): boolean {
+        const field = this.employeeForm.get(fieldName);
+        return field ? field.invalid && field.touched : false;
+      }
+      
+      markAllFieldsTouched() {
+        // بيمرّي على كل الكونترولز ويعملهم touched
+        Object.keys(this.employeeForm.controls).forEach(field => {
+          const control = this.employeeForm.get(field);
+          if (control) {
+            control.markAsTouched();
+          }
+        });
+      }
+      
+      scrollToFirstError() {
+        // انتظر شوية عشان الـ DOM يتحدّث
+        setTimeout(() => {
+          // اختار أول حقل فيه غلط
+          const firstInvalidField = Object.keys(this.employeeForm.controls).find(fieldName => {
+            const control = this.employeeForm.get(fieldName);
+            return control?.invalid && control?.touched;
+          });
+          
+          if (firstInvalidField) {
+            // دور على العنصر في الـ DOM
+            const element = document.querySelector(`[formControlName="${firstInvalidField}"]`);
+            if (element) {
+              element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+              });
+              
+              // خلي الكيرسور يخش في الحقل
+              (element as HTMLElement).focus();
+            }
+          }
+        }, 100);
+      }
 
   resetForm(): void {
     this.employeeForm.reset();
