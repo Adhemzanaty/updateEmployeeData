@@ -244,7 +244,7 @@
 
             <div class="form-group">
               <label for="spouseNationalId">رقم هوية الزوج/الزوجة  <span class="required-star">*</span></label>
-              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control"  [class.is-invalid]="isFieldInvalid('spouseNationalId')" placeholder="اسم الزوج/الزوجة" [(ngModel)]="spouseName2"> 
+              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control"  [class.is-invalid]="isFieldInvalid('spouseNationalId')" placeholder="رقم هوية الزوج/الزوجة " [(ngModel)]="spouseName2"> 
               <div *ngIf="employeeForm.controls.spouseNationalId.touched && employeeForm.controls.spouseNationalId.invalid" class="error-message">
                 الحقل مطلوب
               </div>

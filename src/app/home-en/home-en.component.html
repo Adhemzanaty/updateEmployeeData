@@ -150,7 +150,7 @@
 
             <div class="form-group">
               <label for="spouseNationalId">Spouse National ID <span class="required-star">*</span></label>
-              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control" [class.is-invalid]="isFieldInvalid('spouseNationalId')" placeholder="Spouse Name" [(ngModel)]="spouseName2">
+              <input type="text" id="spouseNationalId" formControlName="spouseNationalId" class="form-control" [class.is-invalid]="isFieldInvalid('spouseNationalId')" placeholder="Spouse National ID" [(ngModel)]="spouseName2">
               <div *ngIf="employeeForm.controls.spouseNationalId.touched && employeeForm.controls.spouseNationalId.invalid" class="error-message">
                 Field is required
               </div>
