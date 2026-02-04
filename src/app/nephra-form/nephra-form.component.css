@@ -1,146 +1,19 @@
-/* الخلفية العامة للموقع */
-.main-wrapper {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-    padding: 40px 0;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-  }
-  
-  /* تصميم الكارت الرئيسي */
-  .form-card {
-    border-radius: 20px;
-    border: none;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-  }
-  
-  /* الهيدر */
-  .form-header {
-    background: #1a73e8;
-    padding: 30px;
-    text-align: center;
-    color: white;
-  }
-  
-  .form-header h2 {
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-  }
-  
-  /* عناوين الأقسام */
-  .section-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #3c4043;
-    margin: 30px 0 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-left: 4px solid #1a73e8;
-    padding-left: 15px;
-  }
-  
-  /* تنظيم الشبكة (Grid) */
-  .input-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  
-  /* ستايل خاص للـ Toggles والـ Checkboxes */
-  .glass-panel {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 20px;
-    border: 1px solid #e8eaed;
-  }
-  
-  .toggle-item {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* الأزرار الاحترافية */
-  .btn-calculate {
-    background: linear-gradient(45deg, #1a73e8, #1557b0);
-    color: white;
-    padding: 15px 50px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: transform 0.3s;
-    width: 100%;
-    max-width: 350px;
-  }
-  
-  .btn-calculate:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
-  }
-  
-  /* كارت النتيجة الاحترافي */
-  .result-card {
-    border-radius: 15px;
-    border: none;
-    color: #202124;
-    animation: fadeInUp 0.6s ease-out;
-  }
-  
-  .score-badge {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1;
-    color: #1a73e8;
-  }
-  
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .grid-3-cols {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    align-items: center;
-  }
-  
-  .badge {
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    background: #eee;
-  }
-  
-  .border-md-end { border-right: 1px solid #e0e0e0; }
-  
-  @media (max-width: 768px) {
-    .border-md-end { border-right: none; border-bottom: 1px solid #e0e0e0; padding-bottom: 20px; margin-bottom: 20px; }
-  }
+.main-wrapper { background: #f8fafc; min-height: 100vh; }
+.form-card { border-radius: 20px; border: none; }
+.form-header { background: #2563eb; color: white; padding: 40px; }
+.section-title { color: #1e293b; font-weight: 700; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+.input-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
 
-/* حل مشكلة شفافية القوائم المنسدلة */
-.cdk-overlay-pane {
-    z-index: 9999 !important; /* التأكد من ظهورها فوق كل شيء */
-  }
-  
-  .mat-mdc-select-panel {
-    background-color: white !important; /* لون خلفية صلب */
-    opacity: 1 !important; /* إلغاء أي شفافية */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important; /* إضافة ظل لتمييزها */
-    border-radius: 8px !important;
-    padding: 8px 0 !important;
-  }
-  
-  /* لضمان ظهور النص بوضوح داخل القائمة */
-  .mat-mdc-option {
-    background-color: white !important;
-    color: #333 !important;
-  }
-  
-  /* تأثير عند الوقوف بالماوس على خيار */
-  .mat-mdc-option:hover {
-    background-color: #f5f5f5 !important;
-  }
+/* Toggles & Meds */
+.toggle-box-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; }
+.t-card { background: #fff; border: 1.5px solid #e2e8f0; padding: 12px 18px; border-radius: 12px; transition: 0.3s; }
+.t-card.on { background: #eff6ff; border-color: #3b82f6; }
+.med-panel { display: flex; flex-wrap: wrap; gap: 20px; background: #f1f5f9; padding: 25px; border-radius: 15px; }
+
+/* Results */
+.result-card { border-radius: 20px; border-left: 10px solid #cbd5e1; transition: 0.5s; }
+.risk-low { border-left-color: #22c55e; background: #f0fdf4; }
+.risk-moderate { border-left-color: #eab308; background: #fefce8; }
+.risk-high { border-left-color: #ef4444; background: #fef2f2; }
+.risk-score-text { font-size: 5rem; font-weight: 900; color: #1e293b; }
+.main-btn { padding: 30px 60px; border-radius: 50px; font-size: 1.2rem; }

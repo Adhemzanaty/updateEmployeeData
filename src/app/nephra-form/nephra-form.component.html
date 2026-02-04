@@ -1,125 +1,116 @@
-<div class="main-wrapper">
-    <div class="container" style="max-width: 1200px;">
-      
-      <mat-card class="form-card">
-        <div class="form-header">
-          <h2>NEPHRARISK Assessment Engine</h2>
-          <p>Comprehensive Clinical Predictive Model v2.1.0</p>
+<div class="main-wrapper py-5 text-center" >
+  <div class="container" style="max-width: 1200px;">
+    
+    <mat-card class="form-card shadow-lg">
+      <div class="form-header">
+        <div class="d-flex align-items-center gap-3">
+          <mat-icon style="font-size: 40px; width: 40px; height: 40px;">nephrology</mat-icon>
+          <div>
+            <h2 class="m-0">NephraRisk Comprehensive Assessment</h2>
+          </div>
         </div>
-  
-        <form [formGroup]="riskForm" (ngSubmit)="calculateRisk()" class="p-4 p-md-5">
-          
-          <h3 class="section-title"> Demographics & Primary Kidney Markers</h3>
-          <div class="input-grid">
-            <mat-form-field appearance="outline"><mat-label>Age</mat-label><input matInput type="number" formControlName="age"></mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Sex</mat-label>
-              <mat-select formControlName="isMale"><mat-option [value]="true">Male</mat-option><mat-option [value]="false">Female</mat-option></mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Ethnicity</mat-label>
-              <mat-select formControlName="ethnicity">
-                <mat-option value="white">White</mat-option><mat-option value="black">Black</mat-option>
-                <mat-option value="asian">Asian</mat-option><mat-option value="hispanic">Hispanic</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>BMI (kg/m²)</mat-label><input matInput type="number" formControlName="bmi"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>eGFR Baseline</mat-label><input matInput type="number" formControlName="egfr"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>eGFR Annual Slope</mat-label><input matInput type="number" formControlName="egfr_Slope"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>UACR (mg/g)</mat-label><input matInput type="number" formControlName="acr"></mat-form-field>
+      </div>
+
+      <form [formGroup]="riskForm" (ngSubmit)="calculateRisk()" class="p-4 p-md-5">
+        
+        <h3 class="section-title"><mat-icon>person</mat-icon> Demographics & Anthropometrics</h3>
+        <div class="input-grid">
+          <mat-form-field appearance="outline"><mat-label>Age</mat-label><input matInput type="number" formControlName="age"></mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Sex</mat-label>
+            <mat-select formControlName="isMale"><mat-option [value]="true">Male</mat-option><mat-option [value]="false">Female</mat-option></mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ethnicity</mat-label>
+            <mat-select formControlName="ethnicity">
+              <mat-option value="white">White</mat-option><mat-option value="black">Black</mat-option><mat-option value="asian">Asian</mat-option><mat-option value="hispanic">Hispanic</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>BMI (kg/m²)</mat-label><input matInput type="number" formControlName="bmi"></mat-form-field>
+        </div>
+
+        <h3 class="section-title mt-4"><mat-icon>water_drop</mat-icon> Renal Function</h3>
+        <div class="input-grid">
+          <mat-form-field appearance="outline"><mat-label>eGFR Baseline</mat-label><input matInput type="number" formControlName="egfr"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>eGFR Annual Slope</mat-label><input matInput type="number" formControlName="egfr_Slope"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>UACR (mg/g)</mat-label><input matInput type="number" formControlName="acr"></mat-form-field>
+        </div>
+
+        <h3 class="section-title mt-4"><mat-icon>monitor_heart</mat-icon> Glycemic & Blood Pressure Control</h3>
+        <div class="input-grid">
+          <mat-form-field appearance="outline"><mat-label>HbA1c (%)</mat-label><input matInput type="number" formControlName="hbA1c"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Time In Range (%)</mat-label><input matInput type="number" formControlName="timeInRange"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Systolic BP</mat-label><input matInput type="number" formControlName="sbp"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Diastolic BP</mat-label><input matInput type="number" formControlName="dbp"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Diabetes Duration (Yrs)</mat-label><input matInput type="number" formControlName="diabetesDuration"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Medication Compliance (%)</mat-label><input matInput type="number" formControlName="medicationCompliance"></mat-form-field>
+        </div>
+
+        <h3 class="section-title mt-4"><mat-icon>opacity</mat-icon> Lipid Profile</h3>
+        <div class="input-grid">
+          <mat-form-field appearance="outline"><mat-label>Total Cholesterol</mat-label><input matInput type="number" formControlName="totalCholesterol"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>LDL Cholesterol</mat-label><input matInput type="number" formControlName="ldlCholesterol"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>HDL Cholesterol</mat-label><input matInput type="number" formControlName="hdlCholesterol"></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Triglycerides</mat-label><input matInput type="number" formControlName="triglycerides"></mat-form-field>
+        </div>
+
+        <h3 class="section-title mt-4"><mat-icon>history_edu</mat-icon> History & Lifestyle Modifiers</h3>
+        <div class="toggle-box-grid">
+
+
+          <div class="t-card" [class.on]="riskForm.get('highGlucoseVariability')?.value"><mat-slide-toggle formControlName="highGlucoseVariability">High Glucose Var</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('highBPVariability')?.value"><mat-slide-toggle formControlName="highBPVariability">High BP Var</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('usesInsulin')?.value"><mat-slide-toggle formControlName="usesInsulin">Uses Insulin</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('hasRetinopathy')?.value"><mat-slide-toggle formControlName="hasRetinopathy">Retinopathy</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('hasNeuropathy')?.value"><mat-slide-toggle formControlName="hasNeuropathy">Neuropathy</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('hasCvdHistory')?.value"><mat-slide-toggle formControlName="hasCvdHistory">CVD History</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('sedentaryLifestyle')?.value"><mat-slide-toggle formControlName="sedentaryLifestyle">Sedentary Lifestyle</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('highSodiumIntake')?.value"><mat-slide-toggle formControlName="highSodiumIntake">High Sodium Intake</mat-slide-toggle></div>
+        </div>
+
+        <div class="input-grid mt-3">
+                    <mat-form-field appearance="outline" *ngIf="riskForm.get('hasRetinopathy')?.value"><mat-label>Retinopathy Severity</mat-label><mat-select formControlName="retinopathySeverity"><mat-option value="mild">Mild</mat-option><mat-option value="moderate">Moderate</mat-option><mat-option value="severe">Severe</mat-option></mat-select></mat-form-field>
+          <mat-form-field appearance="outline" *ngIf="riskForm.get('usesInsulin')?.value"><mat-label>Insulin Duration (Yrs)</mat-label><input matInput type="number" formControlName="insulinDuration"></mat-form-field>
+
+          <mat-form-field appearance="outline"><mat-label>Smoking Status</mat-label><mat-select formControlName="smokingStatus"><mat-option value="never">Never</mat-option><mat-option value="former">Former</mat-option><mat-option value="current">Current</mat-option></mat-select></mat-form-field>
+          <mat-form-field appearance="outline"><mat-label>Diet Quality</mat-label><mat-select formControlName="dietQuality"><mat-option value="good">Good</mat-option><mat-option value="moderate">Moderate</mat-option><mat-option value="poor">Poor</mat-option></mat-select></mat-form-field>
+        </div>
+
+        <h3 class="section-title mt-4"><mat-icon>medication</mat-icon> Current Protective Medications</h3>
+        <div class="med-panel">
+          <mat-checkbox formControlName="usesSGLT2i">SGLT2 Inhibitor</mat-checkbox>
+          <mat-checkbox formControlName="usesAceArb">ACEi / ARB</mat-checkbox>
+          <mat-checkbox formControlName="usesGlp1">GLP-1 RA</mat-checkbox>
+          <mat-checkbox formControlName="usesFinerenone">Finerenone</mat-checkbox>
+          <mat-checkbox formControlName="usesStatin">Statin</mat-checkbox>
+        </div>
+
+        <div class="text-center mt-5">
+          <button mat-flat-button color="primary" class="main-btn" type="submit" [disabled]="loading()">
+            @if (loading()) { <mat-spinner diameter="24"></mat-spinner> } @else { Run ESRD Assessment }
+          </button>
+        </div>
+      </form>
+    </mat-card>
+
+    @if (result()) {
+      <mat-card class="result-card mt-5 p-4" [ngClass]="getRiskClass()">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h4 class="text-muted">3-Year Probability of ESRD</h4>
+            <div class="risk-score-text">{{ result().riskScore }}%</div>
+            <div class="d-flex gap-3 align-items-center">
+              <span class="badge" [ngClass]="getBadgeClass()">{{ result().riskCategory }}</span>
+              <span class="stage-text">Patient Condition: {{ result().ckdStage | uppercase }}</span>
+            </div>
           </div>
-  
-          <h3 class="section-title mt-4"> Glycemic & Metabolic Profile</h3>
-          <div class="input-grid">
-            <mat-form-field appearance="outline"><mat-label>HbA1c (%)</mat-label><input matInput type="number" formControlName="hbA1c"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Time In Range (%)</mat-label><input matInput type="number" formControlName="timeInRange"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Diabetes Duration (Yrs)</mat-label><input matInput type="number" formControlName="diabetesDuration"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Medication Compliance (%)</mat-label><input matInput type="number" formControlName="medicationCompliance"></mat-form-field>
-          </div>
-  
-          <h3 class="section-title mt-4"> Cardiovascular & Lipid Panel</h3>
-          <div class="input-grid">
-            <mat-form-field appearance="outline"><mat-label>Systolic BP</mat-label><input matInput type="number" formControlName="sbp"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Diastolic BP</mat-label><input matInput type="number" formControlName="dbp"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>LDL Cholesterol</mat-label><input matInput type="number" formControlName="ldlCholesterol"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>HDL Cholesterol</mat-label><input matInput type="number" formControlName="hdlCholesterol"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Total Cholesterol</mat-label><input matInput type="number" formControlName="totalCholesterol"></mat-form-field>
-            <mat-form-field appearance="outline"><mat-label>Triglycerides</mat-label><input matInput type="number" formControlName="triglycerides"></mat-form-field>
-          </div>
-  
-          <h3 class="section-title mt-4"> History & Lifestyle Modifiers</h3>
-          <div class="glass-panel grid-3-cols">
-            <mat-slide-toggle formControlName="highGlucoseVariability">High Glucose Variability</mat-slide-toggle>
-            <mat-slide-toggle formControlName="highBPVariability">High BP Variability</mat-slide-toggle>
-            <mat-slide-toggle formControlName="usesInsulin">Current Insulin Use</mat-slide-toggle>
-            <mat-form-field *ngIf="riskForm.get('usesInsulin')?.value" appearance="outline">
-              <mat-label>Insulin Duration (Yrs)</mat-label><input matInput type="number" formControlName="insulinDuration">
-            </mat-form-field>
-            <mat-slide-toggle formControlName="sedentaryLifestyle">Sedentary Lifestyle</mat-slide-toggle>
-            <mat-slide-toggle formControlName="highSodiumIntake">High Sodium Intake</mat-slide-toggle>
-            <mat-slide-toggle formControlName="hasRetinopathy">Retinopathy</mat-slide-toggle>
-            <mat-form-field *ngIf="riskForm.get('hasRetinopathy')?.value" appearance="outline">
-              <mat-label>Severity</mat-label>
-              <mat-select formControlName="retinopathySeverity">
-                <mat-option value="mild">Mild</mat-option><mat-option value="moderate">Moderate</mat-option><mat-option value="severe">Severe</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-slide-toggle formControlName="hasNeuropathy">Neuropathy</mat-slide-toggle>
-            <mat-slide-toggle formControlName="hasCvdHistory">CVD History</mat-slide-toggle>
-            <mat-form-field appearance="outline">
-              <mat-label>Smoking Status</mat-label>
-              <mat-select formControlName="smokingStatus">
-                <mat-option value="never">Never</mat-option><mat-option value="former">Former</mat-option><mat-option value="current">Current</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Diet Quality</mat-label>
-              <mat-select formControlName="dietQuality">
-                <mat-option value="good">Good</mat-option><mat-option value="moderate">Moderate</mat-option><mat-option value="poor">Poor</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-  
-          <h3 class="section-title mt-4"> Pharmacotherapy (Protective Factors)</h3>
-          <div class="glass-panel d-flex flex-wrap gap-4">
-            <mat-checkbox formControlName="usesSGLT2i">SGLT2 Inhibitor</mat-checkbox>
-            <mat-checkbox formControlName="usesAceArb">ACEi / ARB</mat-checkbox>
-            <mat-checkbox formControlName="usesGlp1">GLP-1 RA</mat-checkbox>
-            <mat-checkbox formControlName="usesFinerenone">Finerenone</mat-checkbox>
-            <mat-checkbox formControlName="usesStatin">Statin Therapy</mat-checkbox>
-          </div>
-  
-          <div class="text-center mt-5">
-            <button mat-flat-button class="btn-calculate" type="submit" [disabled]="loading()">
-              @if (loading()) { <mat-spinner diameter="24"></mat-spinner> } 
-              @else {  Analyze Risk Profile }
+          <div class="col-md-4 text-center">
+            <button mat-raised-button color="accent" class="w-100 p-4" (click)="downloadPdf()" [disabled]="pdfLoading()">
+              @if (pdfLoading()) { <mat-spinner diameter="24"></mat-spinner> } @else { <mat-icon>download</mat-icon> Export Report }
             </button>
           </div>
-        </form>
-      </mat-card>
-  
-      @if (result()) {
-        <div id="results-area" class="mt-5 mb-5">
-          <mat-card class="result-card p-5 shadow-lg" [ngClass]="getRiskClass()">
-            <div class="row align-items-center">
-              <div class="col-md-7 border-md-end">
-                <h4 class="text-muted mb-0">36-Month ESRD Probability</h4>
-                <div class="score-badge">{{ result().riskScore }}%</div>
-                <div class="d-flex align-items-center gap-2 mb-3">
-                  <span class="badge" [ngClass]="getBadgeClass()">{{ result().riskCategory }}</span>
-                  <span class="text-secondary">Stage: {{ result().ckdStage | uppercase }}</span>
-                </div>
-              </div>
-              <div class="col-md-5 ps-md-5">
-                <button  class="w-100 p-4 mb-3 btn btn-secondary" (click)="downloadPdf()" [disabled]="pdfLoading()">
-                  @if (pdfLoading()) { <mat-spinner diameter="24"></mat-spinner> } 
-                  @else {  Download Clinical PDF }
-                </button>
-                <p class="small text-muted">هذا التقرير يشمل تحليل الحساسية لجميع العوامل الـ 35 المدخلة.</p>
-              </div>
-            </div>
-          </mat-card>
         </div>
-      }
-    </div>
+      </mat-card>
+    }
   </div>
+</div>
