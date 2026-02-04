@@ -1,19 +1,19 @@
-<div class="main-wrapper py-5 text-center" >
-  <div class="container" style="max-width: 1200px;">
+<div class="main-wrapper py-5 text-center"  >
+  <div class="container " style="max-width: 1200px;">
     
     <mat-card class="form-card shadow-lg">
       <div class="form-header">
-        <div class="d-flex align-items-center gap-3">
+        <div class="d-flex align-items-center gap-3" dir="ltr">
           <mat-icon style="font-size: 40px; width: 40px; height: 40px;">nephrology</mat-icon>
-          <div>
-            <h2 class="m-0">NephraRisk Comprehensive Assessment</h2>
+          <div >
+            <h2 class="m-0 ">NephraRisk Comprehensive Assessment</h2>
           </div>
         </div>
       </div>
 
       <form [formGroup]="riskForm" (ngSubmit)="calculateRisk()" class="p-4 p-md-5">
         
-        <h3 class="section-title"><mat-icon>person</mat-icon> Demographics & Anthropometrics</h3>
+        <h3 class="section-title " dir="ltr"><mat-icon>person</mat-icon> Demographics & Anthropometrics</h3>
         <div class="input-grid">
           <mat-form-field appearance="outline"><mat-label>Age</mat-label><input matInput type="number" formControlName="age"></mat-form-field>
           <mat-form-field appearance="outline">
@@ -29,15 +29,15 @@
           <mat-form-field appearance="outline"><mat-label>BMI (kg/m²)</mat-label><input matInput type="number" formControlName="bmi"></mat-form-field>
         </div>
 
-        <h3 class="section-title mt-4"><mat-icon>water_drop</mat-icon> Renal Function</h3>
-        <div class="input-grid">
+        <h3 class="section-title mt-4" dir="ltr"><mat-icon>water_drop</mat-icon> Renal Function</h3>
+        <div class="input-grid d-flex justify-content-end">
           <mat-form-field appearance="outline"><mat-label>eGFR Baseline</mat-label><input matInput type="number" formControlName="egfr"></mat-form-field>
           <mat-form-field appearance="outline"><mat-label>eGFR Annual Slope</mat-label><input matInput type="number" formControlName="egfr_Slope"></mat-form-field>
           <mat-form-field appearance="outline"><mat-label>UACR (mg/g)</mat-label><input matInput type="number" formControlName="acr"></mat-form-field>
         </div>
 
-        <h3 class="section-title mt-4"><mat-icon>monitor_heart</mat-icon> Glycemic & Blood Pressure Control</h3>
-        <div class="input-grid">
+        <h3 class="section-title mt-4" dir="ltr"><mat-icon>monitor_heart</mat-icon> Glycemic & Blood Pressure Control</h3>
+        <div class="input-grid ">
           <mat-form-field appearance="outline"><mat-label>HbA1c (%)</mat-label><input matInput type="number" formControlName="hbA1c"></mat-form-field>
           <mat-form-field appearance="outline"><mat-label>Time In Range (%)</mat-label><input matInput type="number" formControlName="timeInRange"></mat-form-field>
           <mat-form-field appearance="outline"><mat-label>Systolic BP</mat-label><input matInput type="number" formControlName="sbp"></mat-form-field>
@@ -46,7 +46,7 @@
           <mat-form-field appearance="outline"><mat-label>Medication Compliance (%)</mat-label><input matInput type="number" formControlName="medicationCompliance"></mat-form-field>
         </div>
 
-        <h3 class="section-title mt-4"><mat-icon>opacity</mat-icon> Lipid Profile</h3>
+        <h3 class="section-title mt-4" dir="ltr"><mat-icon>opacity</mat-icon> Lipid Profile</h3>
         <div class="input-grid">
           <mat-form-field appearance="outline"><mat-label>Total Cholesterol</mat-label><input matInput type="number" formControlName="totalCholesterol"></mat-form-field>
           <mat-form-field appearance="outline"><mat-label>LDL Cholesterol</mat-label><input matInput type="number" formControlName="ldlCholesterol"></mat-form-field>
@@ -54,7 +54,7 @@
           <mat-form-field appearance="outline"><mat-label>Triglycerides</mat-label><input matInput type="number" formControlName="triglycerides"></mat-form-field>
         </div>
 
-        <h3 class="section-title mt-4"><mat-icon>history_edu</mat-icon> History & Lifestyle Modifiers</h3>
+        <h3 class="section-title mt-4" dir="ltr"><mat-icon>history_edu</mat-icon> History & Lifestyle Modifiers</h3>
         <div class="toggle-box-grid">
 
 
@@ -76,7 +76,7 @@
           <mat-form-field appearance="outline"><mat-label>Diet Quality</mat-label><mat-select formControlName="dietQuality"><mat-option value="good">Good</mat-option><mat-option value="moderate">Moderate</mat-option><mat-option value="poor">Poor</mat-option></mat-select></mat-form-field>
         </div>
 
-        <h3 class="section-title mt-4"><mat-icon>medication</mat-icon> Current Protective Medications</h3>
+        <h3 class="section-title mt-4" dir="ltr"><mat-icon>medication</mat-icon> Current Protective Medications</h3>
         <div class="med-panel">
           <mat-checkbox formControlName="usesSGLT2i">SGLT2 Inhibitor</mat-checkbox>
           <mat-checkbox formControlName="usesAceArb">ACEi / ARB</mat-checkbox>
