@@ -1,13 +1,21 @@
 <title>NephraRisk Comprehensive Assessment</title>
-<div class="main-wrapper py-5 text-center"  >
+<div class="main-wrapper py-5 text-center ourAllBg"  >
   <div class="container " style="max-width: 1200px;">
     
     <mat-card class="form-card shadow-lg">
       <div class="form-header">
         <div class="d-flex align-items-center gap-3" dir="ltr">
           <mat-icon style="font-size: 40px; width: 40px; height: 40px;">nephrology</mat-icon>
-          <div >
-            <h2 class="m-0 ">NephraRisk Comprehensive Assessment</h2>
+          <div class="d-flex align-items-center justify-content-start w-100">
+            <div> <img src="assets/logo.png" class="ourLogo" alt="logo"></div>
+
+            <div class="text-start">
+                 <h5 class="m-0 "> Ministry of Defense</h5>
+                 <h5 class="m-0 ">General Directorate of Health Services</h5>
+                 <h5 class="m-0 "> NephraRisk Comprehensive Assessment</h5>
+
+            </div>
+
           </div>
         </div>
       </div>
@@ -59,7 +67,7 @@
         <div class="toggle-box-grid">
 
 
-          <div class="t-card" [class.on]="riskForm.get('highGlucoseVariability')?.value"><mat-slide-toggle formControlName="highGlucoseVariability">High Glucose Var</mat-slide-toggle></div>
+          <div class="t-card" [class.on]="riskForm.get('highGlucoseVariability')?.value"><mat-slide-toggle  formControlName="highGlucoseVariability">High Glucose Var</mat-slide-toggle></div>
           <div class="t-card" [class.on]="riskForm.get('highBPVariability')?.value"><mat-slide-toggle formControlName="highBPVariability">High BP Var</mat-slide-toggle></div>
           <div class="t-card" [class.on]="riskForm.get('usesInsulin')?.value"><mat-slide-toggle formControlName="usesInsulin">Uses Insulin</mat-slide-toggle></div>
           <div class="t-card" [class.on]="riskForm.get('hasRetinopathy')?.value"><mat-slide-toggle formControlName="hasRetinopathy">Retinopathy</mat-slide-toggle></div>
@@ -87,7 +95,7 @@
         </div>
 
         <div class="text-center mt-5">
-          <button mat-flat-button color="primary" class="main-btn" type="submit" [disabled]="loading()">
+          <button  class="main-btn btn btn-success" type="submit" [disabled]="loading()">
             @if (loading()) { <mat-spinner diameter="24"></mat-spinner> } @else { Run ESRD Assessment }
           </button>
         </div>
@@ -106,7 +114,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <button mat-raised-button color="accent" class="w-100 p-4" (click)="downloadPdf()" [disabled]="pdfLoading()">
+            <button class="btn btn-success w-100 p-4" (click)="downloadPdf()" [disabled]="pdfLoading()">
               @if (pdfLoading()) { <mat-spinner diameter="24"></mat-spinner> } @else { <mat-icon>download</mat-icon> Export Report }
             </button>
           </div>

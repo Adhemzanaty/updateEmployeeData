@@ -1,13 +1,13 @@
 .main-wrapper { background: #f8fafc; min-height: 100vh; }
 .form-card { border-radius: 20px; border: none; }
-.form-header { background: #2563eb; color: white; padding: 40px; }
+.form-header { background: #1c6758; color: white; padding: 40px; }
 .section-title { color: #1e293b; font-weight: 700; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
 .input-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
 
 /* Toggles & Meds */
 .toggle-box-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; }
 .t-card { background: #fff; border: 1.5px solid #e2e8f0; padding: 12px 18px; border-radius: 12px; transition: 0.3s; }
-.t-card.on { background: #eff6ff; border-color: #3b82f6; }
+.t-card.on { background: #eff6ff; border-color: #1c6758; }
 .med-panel { display: flex; flex-wrap: wrap; gap: 20px; background: #f1f5f9; padding: 25px; border-radius: 15px; }
 
 /* Results */
@@ -16,5 +16,70 @@
 .risk-moderate { border-left-color: #eab308; background: #fefce8; }
 .risk-high { border-left-color: #ef4444; background: #fef2f2; }
 .risk-score-text { font-size: 5rem; font-weight: 900; color: #1e293b; }
-.main-btn { padding: 30px 60px; border-radius: 50px; font-size: 1.2rem; }
+.main-btn { padding: 15px 60px; border-radius: 20px; font-size: 1.2rem; }
+button{background-color: #1c6758 !important;}
+.ourLogo{width: 140px; padding: 0 20px;}
+.ourAllBg{
+    background-image: url(../../assets/login-bg.jpg);
+    background-attachment: fixed;
+}
 
+
+input{
+    padding: 10px 10px !important;
+    margin: auto;
+    border: 1px solid #ec6e1e !important;
+  }
+  select{
+    padding: 10px 30px 10px 0 !important;
+  }
+  .form-select{
+    border: 1px solid #ec6e1e !important;
+  
+  }
+
+  input:focus {
+        border: 1px solid #ec6e1e !important;
+        box-shadow: 0 0 3px 2px #ec6e1e !important;
+        border-radius: 15px;
+  }
+  select:focus {
+    border: 1px solid #ec6e1e !important;
+    box-shadow: 0 0 3px 2px #ec6e1e !important;
+    border-radius: 15px;
+  } 
+  .section-title {
+    background-color: #1c6758;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+    border: 2px solid #1c6758;
+    padding: 5px 5px;
+    border-radius: 10px;
+  }
+  /* mat-slide-toggle:checked{
+    color: red;
+    background-color: red;
+  } */
+  /* لتخصيص الألوان تمامًا */
+/* تغيير اللون عندما يكون التبديل مفعل */
+/* تغيير لون الخلفية عندما يكون مفعل (Checked) */
+mat-slide-toggle {
+    --mdc-switch-selected-focus-state-layer-color: #1c6758;
+    --mdc-switch-selected-handle-color: #ffffff; /* لون الدائرة */
+    --mdc-switch-selected-track-color: #1c6758;  /* لون المسار */
+  }
+  
+  /* تغيير لون المسار والدائرة في حالة عدم التفعيل */
+  mat-slide-toggle {
+    --mdc-switch-unselected-handle-color: #757575;
+    --mdc-switch-unselected-track-color: #e0e0e0;
+  }
+
+  ::ng-deep .mat-mdc-slide-toggle .mdc-switch__ripple {
+    display: none !important;
+  }
