@@ -4,6 +4,7 @@ import { pathGuard } from './path.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { HomeEnComponent } from './home-en/home-en.component';
+import { NephraFormComponent } from './nephra-form/nephra-form.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,8 @@ const routes: Routes = [
   {path: 'home' , component: HomeComponent},
   {path: 'homeEn' , component: HomeEnComponent},
   {path: 'login' , component: LoginComponent},
+  {path: 'NephraForm' , component: NephraFormComponent},
+
   {path: '**', redirectTo: '/login' }
 
 
