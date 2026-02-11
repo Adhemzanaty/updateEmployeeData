@@ -8,7 +8,7 @@ import { NephraFormComponent } from './nephra-form/nephra-form.component';
 
 
 const routes: Routes = [
-  {path: '' , redirectTo: '/NephraForm' , pathMatch: 'full'},
+  {path: '' , redirectTo: '/login' , pathMatch: 'full'},
   {path: 'home' , component: HomeComponent},
   {path: 'homeEn' , component: HomeEnComponent},
   {path: 'login' , component: LoginComponent},
