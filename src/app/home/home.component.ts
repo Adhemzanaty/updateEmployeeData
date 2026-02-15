@@ -546,9 +546,11 @@ export class HomeComponent implements OnInit{
             error: (error) => {
               const statusCode = error.status;
               const errorMessage = error.message || 'حدث خطأ غير معروف';
-              
+              console.log(error);
+              this._APIService.hide();
+
               console.log(`Request failed with status: ${statusCode}`);
-              alert(`حدث خطأ (${statusCode}): ${errorMessage}`);
+              alert(`حدث خطأ (${statusCode}): ${error}`);
             },
             complete: () => {
               console.log('Request completed');
